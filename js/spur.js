@@ -33,5 +33,5 @@ $(document).ready(function(){
 
     // Dev utilities
     // $("header.dash-toolbar .menu-toggle").click();
-    // $(".searchbox-toggle").click();
+    $(".searchbox-toggle").click();
 });
