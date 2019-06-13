@@ -14,48 +14,31 @@
             <nav class="dash-nav-list">
                 <a href="#" class="dash-nav-item">
                     <i class="fas fa-home"></i> Inicio </a>
-                <div class="dash-nav-dropdown ">
+                <div class="dash-nav-dropdown show">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="far fa-edit"></i> Ingresar </a>
+                        <i class="far fa-edit"></i>Registros</a>
                     <div class="dash-nav-dropdown-menu">
-                        <div class="dash-nav-dropdown ">
-                            <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Registrar</a>
-                            <div class="dash-nav-dropdown-menu">
-                                <a href="vista-administrador/registrar/regi-institucion.php" class="dash-nav-dropdown-item">Institución</a>
-                                <a href="vista-administrador/registrar/regi-jefezona.php" class="dash-nav-dropdown-item">Jefe de Zon</a>
-                            </div>
-                        </div>
-                        <div class="dash-nav-dropdown ">
-                            <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Modificar</a>
-                            <div class="dash-nav-dropdown-menu">
-                                <a href="vista-administrador/modificar/mod-institucion.php" class="dash-nav-dropdown-item">Institución</a>
-                                <a href="vista-administrador/modificar/mod-jefezona.php" class="dash-nav-dropdown-item">Jefe de Zona</a>
-                            </div>
-                        </div>
-                        <div class="dash-nav-dropdown ">
-                            <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Eliminar</a>
-                            <div class="dash-nav-dropdown-menu">
-                                <a href="vista-administrador/eliminar/elimi-institucion.php" class="dash-nav-dropdown-item">Institución</a>
-                                <a href="vista-administrador/eliminar/elimi-jefezona.php" class="dash-nav-dropdown-item">Jefe de Zona</a>
-                            </div>
-                        </div>
+                        <a href="vista-administrador/proceso-registro/regi-registros.php" class="dash-nav-dropdown-item">Registrar</a>
+                        <a href="vista-administrador/proceso-registro/mod-registros.php" class="dash-nav-dropdown-item">Modificar</a>
+                        <a href="vista-administrador/proceso-registro/elimi-registros.php" class="dash-nav-dropdown-item">Eliminar</a>
                     </div>
                 </div>
-                <div class="dash-nav-dropdown show">
+
+                <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-user"></i> Usuarios </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="blank.html" class="dash-nav-dropdown-item">Registrar</a>
-                        <a href="content.html" class="dash-nav-dropdown-item">Modificar</a>
-                        <a href="login.html" class="dash-nav-dropdown-item">Eliminar</a>
+                        <a href="vista-administrador/proceso-usuarios/regi-usuarios.php" class="dash-nav-dropdown-item">Registrar</a>
+                        <a href="vista-administrador/proceso-usuarios/mod-usuarios.php" class="dash-nav-dropdown-item">Modificar</a>
+                        <a href="vista-administrador/proceso-usuarios/elimi-usuarios.php" class="dash-nav-dropdown-item">Eliminar</a>
                     </div>
                 </div>
-                <div class="dash-nav-dropdown show">
+                <div class="dash-nav-dropdown ">
                     <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-database"></i>Mantenimiento</a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="blank.html" class="dash-nav-dropdown-item">Respaldo BD</a>
-                        <a href="content.html" class="dash-nav-dropdown-item">Optimización</a>
+                        <a href="vista-administrador/proceso-mantenimiento/mantenimiento-respaldo-bd.php" class="dash-nav-dropdown-item">Respaldo</a>
+                        <a href="vista-administrador/proceso-mantenimiento/optimizacion-bd.php" class="dash-nav-dropdown-item">Optimización</a>
                     </div>
                 </div>
                 <!-- <div class="dash-nav-dropdown">
@@ -79,7 +62,7 @@
                     <i class="fas fa-bars"></i>
                 </a>
                 <!-- Barra de Busqueda -->
-                    <!-- <a href="#!" class="searchbox-toggle">
+                <!-- <a href="#!" class="searchbox-toggle">
                         <i class="fas fa-search"></i>
                     </a>
                     <form class="searchbox" action="#!">
@@ -101,7 +84,6 @@
                             aria-expanded="false">
                             <i class="fas fa-user"></i>
                         </a>
-                        <span>Felipe</span>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                             <!-- <a class="dropdown-item" href="#!">Profile</a> -->
                             <a class="dropdown-item" href="login.php">Cerrar Sesión</a>
@@ -111,8 +93,10 @@
             </header>
             <main class="dash-content">
                 <div class="container-fluid">
-                    <h1 class="dash-title">Bienvenido - Sistema Integrado de Registro para la Prevención Online</h1>
+                    <!-- <h5 class="dash-title">Bienvenido - Sistema Integrado de Registro para la Prevención Online</h5> -->
                     <!-- put your rows / columns here -->
+                    <p>hi from page-adminstrador.php</p>
+                    
                 </div>
             </main>
         </div>
