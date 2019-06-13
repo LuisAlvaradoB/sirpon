@@ -6,7 +6,7 @@
         <div class="card account-dialog">
             <div class="card-header bg-primary text-white"> Iniciar Sesión </div>
             <div class="card-body">
-                <form action="#!">
+                <form action="verificacion-login.php" method="POST">
                     <div class="form-group">
                         <div class="combobox-container">
                             <input type="hidden" name="normal" value="">
@@ -24,11 +24,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                             placeholder="Ingrese Correo Electrónico">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresa Contraseña">
+                        <input type="password" class="form-control" id="password" placeholder="Ingresa Contraseña">
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
