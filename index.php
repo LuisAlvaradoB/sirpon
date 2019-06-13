@@ -21,22 +21,22 @@
                         <div class="dash-nav-dropdown ">
                             <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Registrar</a>
                             <div class="dash-nav-dropdown-menu">
-                                <a href="" class="dash-nav-dropdown-item">Institución</a>
-                                <a href="" class="dash-nav-dropdown-item">Jefe de Zon</a>
+                                <a href="vista-administrador/registrar/regi-institucion.php" class="dash-nav-dropdown-item">Institución</a>
+                                <a href="vista-administrador/registrar/regi-jefezona.php" class="dash-nav-dropdown-item">Jefe de Zona</a>
                             </div>
                         </div>
                         <div class="dash-nav-dropdown ">
                             <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Modificar</a>
                             <div class="dash-nav-dropdown-menu">
-                                <a href="icons.html#regular-icons" class="dash-nav-dropdown-item">Institución</a>
-                                <a href="icons.html#brand-icons" class="dash-nav-dropdown-item">Jefe de Zon</a>
+                                <a href="vista-administrador/modificar/mod-institucion.php" class="dash-nav-dropdown-item">Institución</a>
+                                <a href="vista-administrador/modificar/mod-jefezona.php" class="dash-nav-dropdown-item">Jefe de Zona</a>
                             </div>
                         </div>
                         <div class="dash-nav-dropdown ">
                             <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Eliminar</a>
                             <div class="dash-nav-dropdown-menu">
-                                <a href="icons.html#regular-icons" class="dash-nav-dropdown-item">Institución</a>
-                                <a href="icons.html#brand-icons" class="dash-nav-dropdown-item">Jefe de Zon</a>
+                                <a href="vista-administrador/eliminar/elimi-institucion.php" class="dash-nav-dropdown-item">Institución</a>
+                                <a href="vista-administrador/eliminar/elimi-jefezona.php" class="dash-nav-dropdown-item">Jefe de Zona</a>
                             </div>
                         </div>
                     </div>
