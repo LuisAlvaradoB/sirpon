@@ -7,11 +7,11 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" type="text/css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700"
             type="text/css">
-        <link rel="stylesheet" href="css/spur.css" type="text/css">
+        <link rel="stylesheet" href="../../css/spur.css" type="text/css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"
             type="application/javascript"></script>
-        <script src="js/chart-js-config.js" type="application/javascript"></script>
+        <script src="../../js/chart-js-config.js" type="application/javascript"></script>
         <title>SIRPON</title>
     </head>
 
@@ -36,7 +36,7 @@
                         <div class="dash-nav-dropdown-menu">
                             <a href="vista-administrador/proceso-registro/admin-registros.php"
                                 class="dash-nav-dropdown-item">Registrar</a>
-                            <a href="vista-administrador/proceso-registro/admin-modificaciones.php"
+                            <a href="#"
                                 class="dash-nav-dropdown-item">Modificar</a>
                             <a href="vista-administrador/proceso-registro/admin-eliminar.php"
                                 class="dash-nav-dropdown-item">Eliminar</a>
@@ -94,7 +94,7 @@
                         <div class="dropdown tools-item">
                             <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                <i class="fas fa-sign-out-alt"></i>
+                                <i class="fas fa-user"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                                 <!-- <a class="dropdown-item" href="#!">Profile</a> -->
@@ -277,7 +277,7 @@
             type="application/javascript"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             type="application/javascript"></script>
-        <script src="js/spur.js" type="application/javascript"></script>
+        <script src="../../js/spur.js" type="application/javascript"></script>
     </body>
 
 </html>
