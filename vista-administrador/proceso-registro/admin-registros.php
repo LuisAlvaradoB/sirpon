@@ -7,14 +7,16 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" type="text/css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700"
             type="text/css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
         <link rel="stylesheet" href="../../css/spur.css" type="text/css">
+
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"
             type="application/javascript"></script>
         <script src="../../js/chart-js-config.js" type="application/javascript"></script>
         <title>SIRPON</title>
     </head>
-
 
     <body>
         <div class="dash">
@@ -113,7 +115,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="dash-title">Bienvenido Administrador</h4>
+                                <h4 class="dash-title">Registrar Usuarios / Instituciones</h4>
                             </div>
                             <div class="col">
                                 <h4 class="dash-title text-right">
@@ -123,13 +125,132 @@
                         </div>
                         <!-- put your rows / columns here -->
                         <div class="row">
-                            <div class="col-xl-12">
+                            <div class="col-xs-12 col-lg-6">
                                 <div class="card spur-card">
                                     <div class="card-header">
                                         <div class="spur-card-icon">
-                                            <i class="fas fa-chart-bar"></i>
+                                            <i class="fas fa-user-edit"></i>
                                         </div>
-                                        <div class="spur-card-title"> Complex layout </div>
+                                        <div class="spur-card-title"> Datos personales </div>
+                                    </div>
+                                    <div class="card-body ">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputEmail4">Rut</label>
+                                                    <input type="Rut" class="form-control" id="Rut"
+                                                        placeholder="18.545.175-k">
+                                                </div>
+                                                <!-- <div class="form-group col-md-6">
+                                                    <label for="inputPassword4">Fecha de Nacimiento</label>
+                                                    <input type="fecha_nacimiento" class="form-control"
+                                                        id="fecha_nacimiento" placeholder="Password">
+                                                </div> -->
+                                                <div class="form-group col-md-6">
+                                                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                                                    <div class="input-group date" id="datetimepicker4"
+                                                        data-target-input="nearest">
+                                                        <input type="text" class="form-control datetimepicker-input"
+                                                            data-target="#datetimepicker4" />
+                                                        <div class="input-group-append" data-target="#datetimepicker4"
+                                                            data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i
+                                                                    class="fas fa-calendar-alt"></i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script type="application/javascript">
+                                                (function() {
+                                                    $('#datetimepicker4').datetimepicker({
+                                                        format: 'L',
+                                                        locale: 'es-us'
+                                                    });
+                                                });
+                                                </script>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputAddress">Nombre</label>
+                                                    <input type="text" class="form-control" id="nombre_persona"
+                                                        placeholder="Jorge">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputAddress">Segundo Nombre</label>
+                                                    <input type="text" class="form-control" id="nombre_persona2"
+                                                        placeholder="Andrés">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputAddress2">Apellido Paterno</label>
+                                                    <input type="text" class="form-control" id="apellidop_persona"
+                                                        placeholder="Gonzales">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputAddress2">Apellido Materno</label>
+                                                    <input type="text" class="form-control" id="apellidom_persona"
+                                                        placeholder="Delgado">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-3">
+                                                    <label for="inputCity">Teléfono Fijo</label>
+                                                    <input type="text" class="form-control" id="telefono_fijo"
+                                                        placeholder="51 2 45 58 69">
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label for="inputCity">Teléfono Móvil</label>
+                                                    <input type="text" class="form-control" id="telefono_movil"
+                                                        placeholder="+56 9 6130 0066">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputZip">Correo Electrónico</label>
+                                                    <input type="text" class="form-control" id="correo_electronico"
+                                                        placeholder="ejemplo@gmail.com">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label for="inputCity">Dirección Particular</label>
+                                                    <input type="text" class="form-control" id="direccion_particular"
+                                                        placeholder="Avenida Aguirre #123">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label for="inputCity"></label>
+                                                    <input type="text" class="form-control" id="telefono_movil"
+                                                        placeholder="+56 9 6130 0066">
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="inputZip">Correo Electrónico</label>
+                                                    <input type="text" class="form-control" id="correo_electronico"
+                                                        placeholder="ejemplo@gmail.com">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheck4">
+                                                    <label class="custom-control-label" for="customCheck4">Check this
+                                                        custom checkbox</label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Sign in</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-lg-6">
+                                <div class="card spur-card">
+                                    <div class="card-header">
+                                        <div class="spur-card-icon">
+                                            <i class="fas fa-user-edit"></i>
+                                        </div>
+                                        <div class="spur-card-title"> Usuarios </div>
                                     </div>
                                     <div class="card-body ">
                                         <form>
@@ -185,20 +306,87 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card spur-card">
+                                    <div class="card-header">
+                                        <div class="spur-card-icon">
+                                            <i class="fas fa-building"></i>
+                                        </div>
+                                        <div class="spur-card-title"> Instituciones </div>
+                                    </div>
+                                    <div class="card-body ">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputEmail4">Email</label>
+                                                    <input type="email" class="form-control" id="inputEmail4"
+                                                        placeholder="Email">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputPassword4">Password</label>
+                                                    <input type="password" class="form-control" id="inputPassword4"
+                                                        placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputAddress">Address</label>
+                                                <input type="text" class="form-control" id="inputAddress"
+                                                    placeholder="1234 Main St">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputAddress2">Address 2</label>
+                                                <input type="text" class="form-control" id="inputAddress2"
+                                                    placeholder="Apartment, studio, or floor">
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputCity">City</label>
+                                                    <input type="text" class="form-control" id="inputCity">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="inputState">State</label>
+                                                    <select id="inputState" class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <option>...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label for="inputZip">Zip</label>
+                                                    <input type="text" class="form-control" id="inputZip">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customCheck4">
+                                                    <label class="custom-control-label" for="customCheck4">Check this
+                                                        custom checkbox</label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Sign in</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
         </div>
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" type="application/javascript"></script>
+        <script type="application/javascript" src="../../js/moment.js"> </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             type="application/javascript"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             type="application/javascript"></script>
         <script src="../../js/spur.js" type="application/javascript"></script>
+        <script type="application/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js">
+        </script>
+
     </body>
 
 </html>
