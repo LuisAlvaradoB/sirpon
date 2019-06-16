@@ -37,9 +37,9 @@
                             <i class="far fa-edit"></i>Registros</a>
                         <div class="dash-nav-dropdown-menu">
                             <a href="#" class="dash-nav-dropdown-item">Registrar</a>
-                            <a href="vista-administrador/proceso-registro/admin-modificaciones.php"
+                            <a href="admin-modificaciones.php"
                                 class="dash-nav-dropdown-item">Modificar</a>
-                            <a href="vista-administrador/proceso-registro/admin-eliminar.php"
+                            <a href="admin-eliminar.php"
                                 class="dash-nav-dropdown-item">Eliminar</a>
                         </div>
                     </div>
