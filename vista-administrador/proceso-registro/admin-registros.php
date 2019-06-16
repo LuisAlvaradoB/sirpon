@@ -170,24 +170,24 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputAddress">Nombre</label>
+                                                    <label for=" ">Nombre</label>
                                                     <input type="text" class="form-control" id="nombre_persona"
                                                         placeholder="Jorge">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputAddress">Segundo Nombre</label>
+                                                    <label for="">Segundo Nombre</label>
                                                     <input type="text" class="form-control" id="nombre_persona2"
                                                         placeholder="Andrés">
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputAddress2">Apellido Paterno</label>
+                                                    <label for="">Apellido Paterno</label>
                                                     <input type="text" class="form-control" id="apellidop_persona"
                                                         placeholder="Gonzales">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputAddress2">Apellido Materno</label>
+                                                    <label for="">Apellido Materno</label>
                                                     <input type="text" class="form-control" id="apellidom_persona"
                                                         placeholder="Delgado">
                                                 </div>
@@ -195,51 +195,60 @@
 
                                             <div class="form-row">
                                                 <div class="form-group col-md-3">
-                                                    <label for="inputCity">Teléfono Fijo</label>
+                                                    <label for="">Teléfono Fijo</label>
                                                     <input type="text" class="form-control" id="telefono_fijo"
                                                         placeholder="51 2 45 58 69">
                                                 </div>
                                                 <div class="form-group col-md-3">
-                                                    <label for="inputCity">Teléfono Móvil</label>
+                                                    <label for="">Teléfono Móvil</label>
                                                     <input type="text" class="form-control" id="telefono_movil"
                                                         placeholder="+56 9 6130 0066">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputZip">Correo Electrónico</label>
+                                                    <label for="">Correo Electrónico</label>
                                                     <input type="text" class="form-control" id="correo_electronico"
                                                         placeholder="ejemplo@gmail.com">
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
-                                                    <label for="inputCity">Dirección Particular</label>
+                                                    <label for="">Dirección Particular</label>
                                                     <input type="text" class="form-control" id="direccion_particular"
                                                         placeholder="Avenida Aguirre #123">
                                                 </div>
                                             </div>
 
                                             <div class="form-row">
-                                                <div class="form-group">
-                                                    <label for="inputCity"></label>
-                                                    <input type="text" class="form-control" id="telefono_movil"
-                                                        placeholder="+56 9 6130 0066">
+                                                <div class="form-group col-md-4">
+                                                    <label for="">Región</label>
+                                                    <select class="form-control" id="combo_region">
+                                                        <option>Coquimbo</option>
+                                                    </select>
                                                 </div>
-                                                <div class="form-group ">
-                                                    <label for="inputZip">Correo Electrónico</label>
-                                                    <input type="text" class="form-control" id="correo_electronico"
-                                                        placeholder="ejemplo@gmail.com">
+                                                <div class="form-group col-md-4">
+                                                    <label for="">Provincia</label>
+                                                    <select class="form-control" id="combo_provincia">
+                                                        <option>Elqui</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="">Comuna</label>
+                                                    <select class="form-control" id="combo_comuna">
+                                                        <option>La Serena</option>
+                                                    </select>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input"
                                                         id="customCheck4">
                                                     <label class="custom-control-label" for="customCheck4">Check this
                                                         custom checkbox</label>
                                                 </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Sign in</button>
+                                            </div> -->
+
+                                            <button type="submit" class="btn btn-primary btn-block my-4">Sign in</button>
                                         </form>
                                     </div>
                                 </div>
