@@ -125,7 +125,7 @@
                         </div>
                         <!-- put your rows / columns here -->
                         <div class="row">
-                            <div class="col-xs-12 col-lg-6">
+                            <div class="col-xs-12 col-lg-12">
                                 <div class="card spur-card">
                                     <div class="card-header">
                                         <div class="spur-card-icon">
@@ -248,12 +248,15 @@
                                                 </div>
                                             </div> -->
 
-                                            <button type="submit" class="btn btn-primary btn-block my-4">Sign in</button>
+                                            <!-- <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button> -->
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-lg-6">
+                           
+                        </div>
+                        <div class="row">
+                        <div class="col-xs-12 col-lg-6">
                                 <div class="card spur-card">
                                     <div class="card-header">
                                         <div class="spur-card-icon">
@@ -265,59 +268,71 @@
                                         <form>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Email</label>
-                                                    <input type="email" class="form-control" id="inputEmail4"
-                                                        placeholder="Email">
+                                                    <label for="inputEmail4">Nombre de Usuario</label>
+                                                    <input type="nickname" class="form-control" id="nombre_usuario"
+                                                        placeholder="Feli292">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword4"
-                                                        placeholder="Password">
+                                                    <label for="inputPassword4">Contraseña</label>
+                                                    <input type="password" class="form-control" id="contraseña"
+                                                        placeholder="Contraseña">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress">Address</label>
-                                                <input type="text" class="form-control" id="inputAddress"
-                                                    placeholder="1234 Main St">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress2">Address 2</label>
-                                                <input type="text" class="form-control" id="inputAddress2"
-                                                    placeholder="Apartment, studio, or floor">
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputCity">City</label>
-                                                    <input type="text" class="form-control" id="inputCity">
+                                                    <label for="fecha_nacimiento">Fecha de Registro</label>
+                                                    <div class="input-group date" id="datetimepicker2"
+                                                        data-target-input="nearest">
+                                                        <input type="text" class="form-control datetimepicker-input"
+                                                            data-target="#datetimepicker2" />
+                                                        <div class="input-group-append" data-target="#datetimepicker2"
+                                                            data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i
+                                                                    class="fas fa-calendar-alt"></i></div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="inputState">State</label>
+                                                <script type="application/javascript">
+                                                (function() {
+                                                    $('#datetimepicker4').datetimepicker({
+                                                        format: 'L',
+                                                        locale: 'es-us'
+                                                    });
+                                                });
+                                                </script>
+
+                                                <div class="form-group col-md-6">
+                                                    <label for="">Privilegios</label>
+                                                    <select class="form-control" id="combo_comuna">
+                                                        <option>Jefe de Zona</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label for="inputState">Institución a la que pertence</label>
                                                     <select id="inputState" class="form-control">
-                                                        <option selected>Choose...</option>
+                                                        <option selected>Carabineros de Chile</option>
                                                         <option>...</option>
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-md-2">
-                                                    <label for="inputZip">Zip</label>
-                                                    <input type="text" class="form-control" id="inputZip">
-                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
+                                            <!-- <div class="form-group">
+                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input"
                                                         id="customCheck4">
                                                     <label class="custom-control-label" for="customCheck4">Check this
                                                         custom checkbox</label>
                                                 </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Sign in</button>
+                                            </div> -->
+                                            <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="card spur-card">
                                     <div class="card-header">
                                         <div class="spur-card-icon">
@@ -329,57 +344,23 @@
                                         <form>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Email</label>
-                                                    <input type="email" class="form-control" id="inputEmail4"
-                                                        placeholder="Email">
+                                                    <label for="inputEmail4">Nombre de la Institución</label>
+                                                    <input type="nombre_institución" class="form-control" id="nombre_institución"
+                                                        placeholder="Seguridad Ciudadana">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword4"
-                                                        placeholder="Password">
+                                                    <label for="inputPassword4">Persona a Cargo</label>
+                                                    <input type="password" class="form-control" id="persona_acargo"
+                                                        placeholder="">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress">Address</label>
-                                                <input type="text" class="form-control" id="inputAddress"
-                                                    placeholder="1234 Main St">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputAddress2">Address 2</label>
-                                                <input type="text" class="form-control" id="inputAddress2"
-                                                    placeholder="Apartment, studio, or floor">
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputCity">City</label>
-                                                    <input type="text" class="form-control" id="inputCity">
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="inputState">State</label>
-                                                    <select id="inputState" class="form-control">
-                                                        <option selected>Choose...</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                    <label for="inputZip">Zip</label>
-                                                    <input type="text" class="form-control" id="inputZip">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck4">
-                                                    <label class="custom-control-label" for="customCheck4">Check this
-                                                        custom checkbox</label>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Sign in</button>
+                                            <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </main>
             </div>
