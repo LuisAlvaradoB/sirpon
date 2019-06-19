@@ -36,22 +36,20 @@
                         <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                             <i class="far fa-edit"></i>Registros</a>
                         <div class="dash-nav-dropdown-menu">
-                            <a href="#" class="dash-nav-dropdown-item">Registrar</a>
-                            <a href="admin-modificaciones.php"
+                            <a href="../proceso-registro/admin-registros.php" class="dash-nav-dropdown-item">Registrar</a>
+                            <a href="../proceso-registro/admin-modificaciones.php"
                                 class="dash-nav-dropdown-item">Modificar</a>
-                            <a href="admin-eliminar.php"
+                            <a href="../proceso-registro/admin-eliminar.php"
                                 class="dash-nav-dropdown-item">Eliminar</a>
                         </div>
                     </div>
 
-                    <div class="dash-nav-dropdown ">
+                    <div class="dash-nav-dropdown show">
                         <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
                             <i class="fas fa-database"></i>Mantenimiento</a>
                         <div class="dash-nav-dropdown-menu">
-                            <a href="vista-administrador/proceso-mantenimiento/mantenimiento-respaldo-bd.php"
-                                class="dash-nav-dropdown-item">Respaldo</a>
-                            <a href="vista-administrador/proceso-mantenimiento/optimizacion-bd.php"
-                                class="dash-nav-dropdown-item">Optimización</a>
+                            <a href="#"
+                                class="dash-nav-dropdown-item">Base de datos</a>
                         </div>
                     </div>
                     <!-- <div class="dash-nav-dropdown">
@@ -115,7 +113,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="dash-title">Registrar Usuarios / Instituciones</h4>
+                                <h4 class="dash-title">Tareas de Mantenimiento</h4>
                             </div>
                             <div class="col">
                                 <h4 class="dash-title text-right">
@@ -125,242 +123,33 @@
                         </div>
                         <!-- put your rows / columns here -->
                         <div class="row">
-                            <div class="col-xs-12 col-lg-12">
-                                <div class="card spur-card">
-                                    <div class="card-header">
-                                        <div class="spur-card-icon">
-                                            <i class="fas fa-user-edit"></i>
-                                        </div>
-                                        <div class="spur-card-title"> Datos personales </div>
-                                    </div>
-                                    <div class="card-body ">
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Rut</label>
-                                                    <input type="Rut" class="form-control" id="Rut"
-                                                        placeholder="18.545.175-k">
-                                                </div>
-                                                <!-- <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Fecha de Nacimiento</label>
-                                                    <input type="fecha_nacimiento" class="form-control"
-                                                        id="fecha_nacimiento" placeholder="Password">
-                                                </div> -->
-                                                <div class="form-group col-md-6">
-                                                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                                                    <div class="input-group date" id="datetimepicker4"
-                                                        data-target-input="nearest">
-                                                        <input type="text" class="form-control datetimepicker-input"
-                                                            data-target="#datetimepicker4" />
-                                                        <div class="input-group-append" data-target="#datetimepicker4"
-                                                            data-toggle="datetimepicker">
-                                                            <div class="input-group-text"><i
-                                                                    class="fas fa-calendar-alt"></i></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <script type="application/javascript">
-                                                (function() {
-                                                    $('#datetimepicker4').datetimepicker({
-                                                        format: 'L',
-                                                        locale: 'es-us'
-                                                    });
-                                                });
-                                                </script>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for=" ">Nombre</label>
-                                                    <input type="text" class="form-control" id="nombre_persona"
-                                                        placeholder="Jorge">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Segundo Nombre</label>
-                                                    <input type="text" class="form-control" id="nombre_persona2"
-                                                        placeholder="Andrés">
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Apellido Paterno</label>
-                                                    <input type="text" class="form-control" id="apellidop_persona"
-                                                        placeholder="Gonzales">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Apellido Materno</label>
-                                                    <input type="text" class="form-control" id="apellidom_persona"
-                                                        placeholder="Delgado">
-                                                </div>
-                                            </div>
+                            <div class="col">
+                                <h5 class="mb-3">Copia de Seguridad</h5>
+                                <p>
+                                Una copia de seguridad, respaldo, en ciencias de la información e informática es una copia de los datos originales que se realiza con el fin de disponer de un medio para recuperarlos en caso de su pérdida. Las copias de seguridad son útiles ante distintos eventos y usos: recuperar los sistemas informáticos y los datos de una catástrofe informática, natural o ataque; restaurar una pequeña cantidad de archivos que pueden haberse eliminado accidentalmente, corrompido, infectado por un virus informático u otras causas; guardar información histórica de forma más económica que los discos duros y además permitiendo el traslado a ubicaciones distintas de la de los datos originales; etc. 
+                                <br>
+                                <br>
+                                - El sistema dispone la opción para hacer un respaldo total de la base de datos SIRPON, mediante un solo click en el boton de respaldar, (Se utiliza la herramienta provista por MySQL "mysqldump"). <br>
+                                - El archivo generado es un dump SQL que contiene todos los datos y estructura de la base de datos. <br>
+                                - El archivo se guardara en la carpeta Respaldos segun la fecha correspondiente. <br>
+                                - Queda al criterio del Administrador que hacer con el archivo SQL, si lo guardara en otro medio de almacenamiento o no.    
 
-                                            <div class="form-row">
-                                                <div class="form-group col-md-3">
-                                                    <label for="">Teléfono Fijo</label>
-                                                    <input type="text" class="form-control" id="telefono_fijo"
-                                                        placeholder="51 2 45 58 69">
-                                                </div>
-                                                <div class="form-group col-md-3">
-                                                    <label for="">Teléfono Móvil</label>
-                                                    <input type="text" class="form-control" id="telefono_movil"
-                                                        placeholder="+56 9 6130 0066">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Correo Electrónico</label>
-                                                    <input type="text" class="form-control" id="correo_electronico"
-                                                        placeholder="ejemplo@gmail.com">
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-12">
-                                                    <label for="">Dirección Particular</label>
-                                                    <input type="text" class="form-control" id="direccion_particular"
-                                                        placeholder="Avenida Aguirre #123">
-                                                </div>
-                                            </div>
 
-                                            <div class="form-row">
-                                                <div class="form-group col-md-4">
-                                                    <label for="">Región</label>
-                                                    <select class="form-control" id="combo_region">
-                                                        <option>Coquimbo</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="">Provincia</label>
-                                                    <select class="form-control" id="combo_provincia">
-                                                        <option>Elqui</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="">Comuna</label>
-                                                    <select class="form-control" id="combo_comuna">
-                                                        <option>La Serena</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <!-- <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck4">
-                                                    <label class="custom-control-label" for="customCheck4">Check this
-                                                        custom checkbox</label>
-                                                </div>
-                                            </div> -->
-
-                                            <!-- <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button> -->
-                                        </form>
-                                    </div>
-                                </div>
+                                </p>
+                                <button type="submit" class="btn btn-primary btn-lg float-right">Respaldar</button>
                             </div>
-                           
                         </div>
                         <div class="row">
-                        <div class="col-xs-12 col-lg-6">
-                                <div class="card spur-card">
-                                    <div class="card-header">
-                                        <div class="spur-card-icon">
-                                            <i class="fas fa-user-edit"></i>
-                                        </div>
-                                        <div class="spur-card-title"> Usuarios </div>
-                                    </div>
-                                    <div class="card-body ">
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Nombre de Usuario</label>
-                                                    <input type="nickname" class="form-control" id="nombre_usuario"
-                                                        placeholder="Feli292">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Contraseña</label>
-                                                    <input type="password" class="form-control" id="contraseña"
-                                                        placeholder="Contraseña">
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="fecha_nacimiento">Fecha de Registro</label>
-                                                    <div class="input-group date" id="datetimepicker2"
-                                                        data-target-input="nearest">
-                                                        <input type="text" class="form-control datetimepicker-input"
-                                                            data-target="#datetimepicker2" />
-                                                        <div class="input-group-append" data-target="#datetimepicker2"
-                                                            data-toggle="datetimepicker">
-                                                            <div class="input-group-text"><i
-                                                                    class="fas fa-calendar-alt"></i></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <script type="application/javascript">
-                                                (function() {
-                                                    $('#datetimepicker4').datetimepicker({
-                                                        format: 'L',
-                                                        locale: 'es-us'
-                                                    });
-                                                });
-                                                </script>
+                            <div class="col">
+                                <h5 class="mb-3">Optimización de tablas</h5>
+                                <p>
+                                Cuando tenemos un problema de este tipo, podemos intentar lanzar una reparación u optimización de la base de datos, estos procesos son necesarios del mismo modo que un disco duro necesita ser desfragmentado de vez en cuando. El flujo de información en una gran base de datos suele ser constante, por lo tanto, ésta debe de ser organizada de forma óptima.
 
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Privilegios</label>
-                                                    <select class="form-control" id="combo_comuna">
-                                                        <option>Jefe de Zona</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-row">
-                                                <div class="form-group col-md-12">
-                                                    <label for="inputState">Institución a la que pertence</label>
-                                                    <select id="inputState" class="form-control">
-                                                        <option selected>Carabineros de Chile</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!-- <div class="form-group">
-                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck4">
-                                                    <label class="custom-control-label" for="customCheck4">Check this
-                                                        custom checkbox</label>
-                                                </div>
-                                            </div> -->
-                                            <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card spur-card">
-                                    <div class="card-header">
-                                        <div class="spur-card-icon">
-                                            <i class="fas fa-building"></i>
-                                        </div>
-                                        <div class="spur-card-title"> Instituciones </div>
-                                    </div>
-                                    <div class="card-body ">
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Nombre de la Institución</label>
-                                                    <input type="nombre_institución" class="form-control" id="nombre_institución"
-                                                        placeholder="Seguridad Ciudadana">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Persona a Cargo</label>
-                                                    <input type="password" class="form-control" id="persona_acargo"
-                                                        placeholder="">
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button>
-                                        </form>
-                                    </div>
-                                </div>
+                                Lo que hacen los comandos de optimización de base de datos es reorganizar el almacenamiento físico de los datos de las tablas y sus índices asociados, de este modo se reduce el espacio que necesitan y mejora considerablemente las consultas y el tiempo de acceso a la información.
+                                </p>
+                                <button type="submit" class="btn btn-primary btn-lg float-right">Optimizar</button>
                             </div>
                         </div>
-
                     </div>
                 </main>
             </div>

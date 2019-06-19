@@ -48,10 +48,8 @@
                         <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
                             <i class="fas fa-database"></i>Mantenimiento</a>
                         <div class="dash-nav-dropdown-menu">
-                            <a href="vista-administrador/proceso-mantenimiento/mantenimiento-respaldo-bd.php"
-                                class="dash-nav-dropdown-item">Respaldo</a>
-                            <a href="vista-administrador/proceso-mantenimiento/optimizacion-bd.php"
-                                class="dash-nav-dropdown-item">Optimización</a>
+                            <a href="../proceso-mantenimiento/admin-mantenimiento.php"
+                                class="dash-nav-dropdown-item">Base de datos</a>
                         </div>
                     </div>
                     <!-- <div class="dash-nav-dropdown">
