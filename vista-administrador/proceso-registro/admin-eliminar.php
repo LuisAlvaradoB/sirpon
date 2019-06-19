@@ -32,7 +32,7 @@
                 <nav class="dash-nav-list">
                     <a href="../../page-administrador.php" class="dash-nav-item">
                         <i class="fas fa-home"></i> Inicio </a>
-                    <div class="dash-nav-dropdown ">
+                    <div class="dash-nav-dropdown show">
                         <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                             <i class="far fa-edit"></i>Registros</a>
                         <div class="dash-nav-dropdown-menu">
@@ -115,7 +115,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="dash-title">Registrar Usuarios / Instituciones</h4>
+                                <h4 class="dash-title">Eliminar Usuarios / Instituciones</h4>
                             </div>
                             <div class="col">
                                 <h4 class="dash-title text-right">
@@ -124,6 +124,24 @@
                             </div>
                         </div>
                         <!-- put your rows / columns here -->
+                        <div class="row">
+                            <!-- Barra de Busqueda -->
+                            <div class="col-md-9 my-4">
+                                <a href="#!" class="searchbox-toggle">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <form class="searchbox" action="#!">
+                                    <a href="#!" class="searchbox-toggle"> <i class="fas fa-arrow-left"></i> </a>
+                                    <button type="submit" class="searchbox-submit"> <i class="fas fa-search"></i>
+                                    </button>
+                                    <input type="text" class="searchbox-input" placeholder="Buscar">
+                                </form>
+                            </div>
+                            <div class="col-md-3 my-4">
+                            <button type="submit"
+                                                class="btn btn-primary btn-block btn-lg">Buscar</button>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-xs-12 col-lg-12">
                                 <div class="card spur-card">
@@ -327,7 +345,7 @@
                                                         custom checkbox</label>
                                                 </div>
                                             </div> -->
-                                            <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button>
+                                            <button type="submit" class="btn btn-primary btn-block my-4">Eliminar</button>
                                         </form>
                                     </div>
                                 </div>
@@ -354,7 +372,7 @@
                                                         placeholder="">
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button>
+                                            <button type="submit" class="btn btn-primary btn-block my-4">Eliminar</button>
                                         </form>
                                     </div>
                                 </div>

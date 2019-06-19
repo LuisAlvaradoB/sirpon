@@ -32,7 +32,7 @@
                 <nav class="dash-nav-list">
                     <a href="../../page-administrador.php" class="dash-nav-item">
                         <i class="fas fa-home"></i> Inicio </a>
-                    <div class="dash-nav-dropdown ">
+                    <div class="dash-nav-dropdown show">
                         <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                             <i class="far fa-edit"></i>Registros</a>
                         <div class="dash-nav-dropdown-menu">
