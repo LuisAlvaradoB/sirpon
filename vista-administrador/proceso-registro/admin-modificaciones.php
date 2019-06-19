@@ -114,13 +114,13 @@
                                 <h4 class="dash-title"> Modificar Usuarios / Instituciones</h4>
                             </div>
                             <div class="col">
-                                <h4 class="dash-title text-right">
-                                    15/06/2019 - 20:27 hrs
-                                </h4>
+                            <h4 class="dash-title text-right" id="fechaActual+reloj"></h4>
                             </div>
                         </div>
+                        <hr>    
                         <!-- put your rows / columns here -->
                         <div class="row">
+                        <hr>
                             <!-- Barra de Busqueda -->
                             <div class="col-md-9 my-4">
                                 <a href="#!" class="searchbox-toggle">
@@ -392,6 +392,7 @@
         <script type="application/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js">
         </script>
+        <script src="../../js/reloj.js" type="application/javascript"></script>
 
     </body>
 

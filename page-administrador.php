@@ -103,6 +103,7 @@
                 </header>
                 <main class="dash-content">
                     <div class="container-fluid">
+                        
                         <div class="row">
                             <div class="col">
                                 <h2 class="text-center dash-title font-weight-bold text-uppercase">Sistema Integrado de Registro para la
@@ -114,13 +115,11 @@
                                 <div class="col">
                                     <h4 class="dash-title">Bienvenido Administrador</h4>
                                 </div>
-                                <div class="col">
-                                    <h4 class="dash-title text-right">
-                                        15/06/2019 - 20:27 hrs
-                                    </h4>
+                                <div class="col-md-4">
+                               <h4 class="dash-title text-right" id="fechaActual+reloj"></h4>
                                 </div>
                             </div>
-                        
+                            <hr>
                         <!-- put your rows / columns here -->
                         <div class="row dash-row">
                             <div class="col-xl-4">
@@ -276,6 +275,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             type="application/javascript"></script>
         <script src="js/spur.js" type="application/javascript"></script>
+        <script src="js/reloj.js" type="application/javascript"></script>
     </body>
 
 </html>

@@ -116,11 +116,10 @@
                                 <h4 class="dash-title">Tareas de Mantenimiento</h4>
                             </div>
                             <div class="col">
-                                <h4 class="dash-title text-right">
-                                    15/06/2019 - 20:27 hrs
-                                </h4>
+                            <h4 class="dash-title text-right" id="fechaActual+reloj"></h4>
                             </div>
                         </div>
+                        <hr>
                         <!-- put your rows / columns here -->
                         <div class="row">
                             <div class="col">
@@ -139,11 +138,12 @@
                                 <button type="submit" class="btn btn-primary btn-lg float-right">Respaldar</button>
                             </div>
                         </div>
+                        <hr>
                         <div class="row">
                             <div class="col">
                                 <h5 class="mb-3">Optimización de tablas</h5>
                                 <p>
-                                Cuando tenemos un problema de este tipo, podemos intentar lanzar una reparación u optimización de la base de datos, estos procesos son necesarios del mismo modo que un disco duro necesita ser desfragmentado de vez en cuando. El flujo de información en una gran base de datos suele ser constante, por lo tanto, ésta debe de ser organizada de forma óptima.
+                                El flujo de información en una gran base de datos suele ser constante, por lo tanto, ésta debe de ser organizada de forma óptima.
 
                                 Lo que hacen los comandos de optimización de base de datos es reorganizar el almacenamiento físico de los datos de las tablas y sus índices asociados, de este modo se reduce el espacio que necesitan y mejora considerablemente las consultas y el tiempo de acceso a la información.
                                 </p>
@@ -165,6 +165,7 @@
         <script type="application/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js">
         </script>
+        <script src="../../js/reloj.js" type="application/javascript"></script>
 
     </body>
 
