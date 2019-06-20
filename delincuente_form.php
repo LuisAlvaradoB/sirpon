@@ -1,10 +1,13 @@
 <?php include 'head.php';
- include'conexion.php';
-  ?>
+include'conexion.php';
+$query = mysqli_query($con, "SELECT * FROM region");
+$query1 = mysqli_query($con, "SELECT * FROM provincia");
+$query2 = mysqli_query($con, "SELECT*  FROM comuna");
 
-    
-	
 
+?>
+
+<!DOCTYPE html>
 <body>
     <div class="dash">
         <div class="dash-nav dash-nav-dark">
@@ -13,11 +16,11 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="#" class="spur-logo"><i class="far fa-eye"></i><span>SIRPON</span></a>
+                <a href="page-operador.php" class="spur-logo"><i class="far fa-eye"></i><span>SIRPON</span></a>
             </header>
             <!-- Sidebar de Navegacion -->
             <nav class="dash-nav-list">
-                <a href="#" class="dash-nav-item">
+                <a href="page-operador.php" class="dash-nav-item">
                     <i class="fas fa-home"></i> Inicio </a>
                 <div class="dash-nav-dropdown ">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
@@ -27,6 +30,7 @@
                             <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">registro</a>
                             <div class="dash-nav-dropdown-menu">
                                 <a href="delincuente_form.php" class="dash-nav-dropdown-item">crear ficha</a>
+                                <a href="antecedentes.php" class="dash-nav-dropdown-item">crear nuevo antecedente</a>
                                 <a href="" class="dash-nav-dropdown-item">Buscar Antecedentes</a>
                             </div>
                         </div>
@@ -34,28 +38,13 @@
                    
                     </div>
                 </div>
-             srip
                 <div class="dash-nav-dropdown show">
                     <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-database"></i>Cerrar Sesión </a>
                    
                     </div>
                 </div>
-                <!-- <div class="dash-nav-dropdown">
-                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-info"></i> About </a>
-                    <div class="dash-nav-dropdown-menu">
-                        <a href="https://github.com/HackerThemes/spur-template" target="_blank"
-                            class="dash-nav-dropdown-item">GitHub</a>
-                        <a href="http://hackerthemes.com" target="_blank"
-                            class="dash-nav-dropdown-item">HackerThemes</a>
-                    </div>
-                </div> -->
-            </nav>
-            <!-- fin navbar -->
-        </div>
-
-        <div class="dash-app">
+                <div class="dash-app">
             
             <main class="dash-content">
                 <div class="container-fluid ">
@@ -128,33 +117,68 @@
                                      
                                         <div class="form-row">
      
-                                        <div class="form-group col-md-4">
-                                                <label >REGION</label>
-                                                <select  class="form-control" name="region" >
-                                                    <option>hola   </option>
-                                                    <option>chao </option>
-                                                </select>
-                                            </div>
+                                      
                                             <div class="form-group col-md-4">
-                                                <label >PROVINCIA</label>
-                                                <select  class="form-control" name="provincia">
-                                                <option>hola   </option>
-                                                    <option>chao </option>
-                                                  
+                                             
+                                            <label>REGION</label>
+                                                    <select class="form-control" name="region">
+                                                    
+                                                    <?php
+                                                        while ($datos = mysqli_fetch_array($query)) {
+                                                               
+                                                        ?>
+                                                    
+                                                        <option  value="<?php echo $datos['REGION_ID']?>" selected="" n><?php echo $datos['REGION_NOMBRE'] ?> </option>
+                                                      
+                                                    <?php
+                                                    }
+                                                    ?>
+
                                                 </select>
+                                                                                                            
+                                               
                                             </div>
                                            
                                           <div class="form-group col-md-4">
-                                                <label >COMUNA</label>
-                                                <select  class="form-control" name="comuna">
-                                                <option>hola   </option>
-                                                    <option>chao </option>
-                                                  
-                                                    </select>
+                                          <label>PROVINCIA</label>
+                                <select class="form-control" name="provincia">
+                                                                 <?php
+                                    while ($datos = mysqli_fetch_array($query1)) {
+
+                                    ?>
+                                    <option  value="<?php echo $datos['PROVINCIA_ID']?>" selected=""><?php echo $datos['PROVINCIA_NOMBRE'] ?> </option>
+                                <?php
+                                 }
+                                ?>
+
+                            </select>  
                                             </div>   
+                                        <div class="form-group col-md-4">
+                                <label>COMUNA</label>
+                                <select class="form-control" name="comuna">
+                    
+                                   <?php
+                                    while ($datos = mysqli_fetch_array($query2)) {
+
+                                    ?>
+                                     
+                                    <option  value="<?php echo $datos['COMUNA_ID']?>" selected=""><?php echo $datos['COMUNA_NOMBRE'] ?> </option>
+
+                                <?php
+                                 }
+                                ?>
+
+                            </select>
+                        </div> 
+                       
 </div>
-                                        <button type="submit" class="btn btn-primary" name="enviar">REGISTRA DATOS</button>
+<br>
+                                        <button type="submit" style="margin-right:80px" class="btn btn-primary" name="enviar">REGISTRA DATOS</button>
+                                        <a  href="antecedentes.php" class="btn btn-primary" role="button" aria-pressed="true">CREAR ANTECEDENTES</a>
+                                       
                                     </form>
+                                    
+                                   
                                 </div>
                 </div>
             </main>

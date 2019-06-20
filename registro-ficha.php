@@ -20,24 +20,27 @@ $Region=$_POST["region"];
 $Provincia=$_POST["provincia"];
 $Comuna=$_POST["comuna"];
 
+
+
 	if(isset($_POST['enviar']) && $nombre!="" && $Apellido_Pt!="" && $Apellido_Mt!="" && $Rut!=""&& $Direccion_domicilio!=""&& $Fecha_Nacimiento!=""&& $Telefono_celular!=""&& $Telefono_fijo!=""&& $Correo!=""&& $Apodo_delincuente!=""&& $EstadoPenal!=""&& $CantidadDelitos!=""&& $Ultimo_lugar_visto!=""&& $Region!=""&& $Provincia!=""&& $Comuna!="" ){
 								                 	
 
-            $sql="INSERT INTO persona (RUT,FECHA_NACIMIENTO,NOMBRE,APELLIDO_PA,APELLIDO_MA,TELEFONO_RED_FIJA,TELEFONO,CORREO_ELECTRONICO,DOMICILIO_PARTICULAR,REGION_ID,PROVINCIA_ID,COMUNA_ID)values('$Rut','$Fecha_Nacimiento','$nombre','$Apellido_Pt','$Apellido_Mt','$Telefono_fijo','$Telefono_celular','$Correo','$Direccion_domicilio','$Region','$Provincia','$Comuna')";
+		
+            $sql="INSERT INTO persona (RUT,FECHA_NACIMIENTO,NOMBRE,APELLIDO_PA,APELLIDO_MA,TELEFONO_RED_FIJA,TELEFONO,CORREO_ELECTRONICO,DOMICILIO_PARTICULAR,REGION_ID,PROVINCIA_ID,COMUNA_ID)values('$Rut','$Fecha_Nacimiento','$nombre','$Apellido_Pt','$Apellido_Mt','$Telefono_fijo','$Telefono_celular','$Correo','$Direccion_domicilio','$Region','$Provincia',' $Comuna')";
 	       	$result=mysqli_query($con,$sql);
 	
 		
            
-		$sql1="INSERT INTO delincuente (RUT,APODO_DELINCUENTE,ULTIMO_LUGAR_VISTO,CANTIDAD_DELITOS,ESTADO_PENAL)values('$Rut','$Apodo_delincuente,'$Ultimo_lugar_visto','$CantidadDelitos','$EstadoPenal')";
-		
+		$sql1="INSERT INTO delicuente (RUT,APODO_DELINCUENTE,ULTIMO_LUGAR_VISTO,CANTIDAD_DELITOS,ESTADO_PENAL)values('$Rut','$Apodo_delincuente','$Ultimo_lugar_visto','$CantidadDelitos','$EstadoPenal')";
+
             $result2=mysqli_query($con,$sql1);
-          	echo '<script>alert("usuario registrado con exito")</script>';
+echo '<script>alert("usuario registrado con exito")</script>';
 	echo '<script>window.location="page-operador.php"</script>';
 		
 	}else{
 	
 		echo '<script>alert("Faltan datos")</script>';
-	echo '<script>window.location="delincuente_form.php"</script>';
+		echo '<script>window.location="delincuente_form.php"</script>';
 	}
    
     
