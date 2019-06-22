@@ -1,8 +1,10 @@
 <?php include 'head.php';
 include 'conexion.php';
 
-$query = mysqli_query($con, "SELECT REGION_NOMBRE FROM region");
-$query1 = mysqli_query($con, "SELECT PROVINCIA_NOMBRE FROM provincia");
+$query = mysqli_query($con, "SELECT * FROM region ");
+$query1 = mysqli_query($con, "SELECT * FROM provincia");
+$query2= mysqli_query($con, "SELECT  * FROM comuna");
+$query3= mysqli_query($con, "SELECT  * FROM persona");
 
 
 
@@ -126,11 +128,12 @@ $query1 = mysqli_query($con, "SELECT PROVINCIA_NOMBRE FROM provincia");
                             <div class="form-group col-md-4">
                                 <label>REGION</label>
                                 <select class="form-control" name="region">
+                                <option>seleccione</option>
                                     <?php
                                     while ($datos = mysqli_fetch_array($query)) {
 
                                         ?>
-                                        <option  value="0" selected=""><?php echo $datos['REGION_NOMBRE'] ?> </option>
+                                        <option  value="<?php echo $datos['REGION_ID'] ?>" selected=""><?php echo $datos['REGION_NOMBRE'] ?> </option>
                                     <?php
                                 }
                                 ?>
@@ -148,7 +151,7 @@ $query1 = mysqli_query($con, "SELECT PROVINCIA_NOMBRE FROM provincia");
 
                                         ?>
                                         
-                                        <option value="0" selected="1"><?php echo $datos1['PROVINCIA_NOMBRE'] ?> </option>
+                                        <option value="<?php echo $datos1['PROVINCIA_ID'] ?>" selected="1"><?php echo $datos1['PROVINCIA_NOMBRE'] ?> </option>
                                     <?php
                                 }
                                 ?>
@@ -158,8 +161,16 @@ $query1 = mysqli_query($con, "SELECT PROVINCIA_NOMBRE FROM provincia");
                             <div class="form-group col-md-4">
                                 <label>COMUNA</label>
                                 <select class="form-control" name="comuna">
-                                    <option>La Herradura</option>
-                                    <option>La Dehesa</option>
+                                <option>seleccione</option>
+                                <?php
+                                    while ($datos2 = mysqli_fetch_array($query2)) {
+
+                                        ?>
+                                        
+                                        <option value="<?php echo $datos2['COMUNA_ID'] ?>" selected="1"><?php echo $datos2['COMUNA_NOMBRE'] ?> </option>
+                                    <?php
+                                }
+                                ?>
 
                                 </select>
                             </div>
@@ -235,7 +246,7 @@ $query1 = mysqli_query($con, "SELECT PROVINCIA_NOMBRE FROM provincia");
                 <tbody>
                     <?php
                     
-                    $sql="SELECT * from persona";
+                    $sql="SELECT PER.RUT, PER.NOMBRE,PER.FECHA_NACIMIENTO,PER.APELLIDO_PA, PER.APELLIDO_MA, PER.TELEFONO_RED_FIJA,PER.TELEFONO,PER.CORREO_ELECTRONICO,PER.DOMICILIO_PARTICULAR, rg.REGION_NOMBRE, rg.REGION_ID,pr.PROVINCIA_NOMBRE, cm.COMUNA_NOMBRE FROM persona PER INNER JOIN region rg INNER JOIN provincia pr INNER JOIN comuna cm WHERE PER.REGION_ID=rg.REGION_ID AND rg.REGION_ID=PER.REGION_ID and PER.PROVINCIA_ID=pr.PROVINCIA_ID and pr.PROVINCIA_ID=PER.PROVINCIA_ID AND cm.COMUNA_ID = PER.COMUNA_ID";
                     $result=mysqli_query($con,$sql);
                     
                     while($mostrar=mysqli_fetch_array($result)){
@@ -252,8 +263,8 @@ $query1 = mysqli_query($con, "SELECT PROVINCIA_NOMBRE FROM provincia");
                         <td><?php echo $mostrar['CORREO_ELECTRONICO']?></td>
                         <td><?php echo $mostrar['DOMICILIO_PARTICULAR']?></td>
                         <th><?php echo $mostrar['REGION_ID']?></th>
-                        <th><?php echo $mostrar['PROVINCIA_ID']?></th>
-                        <th><?php echo $mostrar['COMUNA_ID']?></th>
+                        <th><?php echo $mostrar['PROVINCIA_NOMBRE']?></th>
+                        <th><?php echo $mostrar['COMUNA_NOMBRE']?></th>
                         <!--boton para eliminar-->
                     </tr>
                     <?php
@@ -281,10 +292,21 @@ $query1 = mysqli_query($con, "SELECT PROVINCIA_NOMBRE FROM provincia");
             <div class="card-body ">
                 <form action="" method="POST">
                     <div class="form-group">
-                        <div class="form-group">
-                            <label>RUT</label>
-                            <input type="text" class="form-control" placeholder="ejem 18.700.672-0" name="Rut">
-                        </div>
+                    <div class="form-group col-md-4">
+                                <label>RUT</label>
+                                <select class="form-control" name="rut">
+                                <option>seleccione</option>
+                                    <?php
+                                    while ($datos3 = mysqli_fetch_array($query3)) {
+
+                                        ?>
+                                        <option  value="0" selected=""><?php echo $datos3['RUT'] ?> </option>
+                                    <?php
+                                }
+                                ?>
+
+                                </select>
+                            </div>
 
                         <label>NOMBRE DE USUARIO</label>
                         <input type="text" class="form-control" placeholder="Nombre Usuario" name="nombre">
