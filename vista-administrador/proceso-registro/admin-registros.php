@@ -1,6 +1,7 @@
 <?php 
     include'../../inc/conexion.php';
     $query = mysqli_query($con, "SELECT * FROM region");
+    $query1 = mysqli_query($con, "SELECT * FROM institucion");
 ?>
 <!doctype html>
 <html lang="es">
@@ -148,7 +149,7 @@
                                                 </div> -->
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                                                    
+                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha" name="fechaNacimiento">
                                                 </div>
                                                 
                                             </div>
@@ -206,7 +207,7 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="">Región</label>
                                                     <select class="form-control" id="region" name="region">
-                                                        <option>Selecciona Región</option>
+                                                        <option >Selecciona Región</option>
                                                         <?php
                                                         while ($datos = mysqli_fetch_array($query)) {
                                                         ?>
@@ -219,13 +220,13 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="">Provincia</label>
                                                     <select class="form-control" id="provincia" name="provincia">
-                                                        <option>Selecciona Provincia</option>
+                                                        <option >Selecciona Provincia</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="">Comuna</label>
                                                     <select class="form-control" id="comuna" name="comuna">
-                                                        <option>Selecciona Comuna</option>
+                                                        <option >Selecciona Comuna</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -272,7 +273,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Registro</label>
-                                                    
+                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha" name="fechaNacimientoUsuario">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Privilegios</label>
@@ -346,9 +347,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             type="application/javascript"></script>
         <script src="../../js/spur.js" type="application/javascript"></script>
-        <script type="application/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js">
-        </script>
         <script src="../../js/reloj.js" type="application/javascript"></script>
     </body>
 
