@@ -8,7 +8,7 @@ $Fecha_Nacimiento=$_POST["fechaNacimiento"];
 $Apellido_Pt=$_POST["ApellidoP"];
 $Apellido_Mt=$_POST["ApellidoM"];
 $Direccion_domicilio=$_POST["Direccion_Domicilio"];
-$Fecha_Nacimiento=$_POST["fechaNacimiento"];
+
 $Telefono_celular=$_POST["num_telefono_celular"];
 $Telefono_fijo=$_POST["Telefono_Fijo"];
 $Correo=$_POST["correo"];

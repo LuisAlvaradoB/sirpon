@@ -1,7 +1,7 @@
 <?php 
  include'conexion.php';
-$nombre=$_POST["nombre"];
-$Region=$_POST["region"];
+$rut=$_POST["rut"];
+$nombre1=$_POST["nombre1"];
 $Provincia=$_POST["provincia"];
 $Comuna=$_POST["comuna"];
 

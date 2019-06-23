@@ -26,20 +26,8 @@
                                 
                             </div>
                         </div>
-                        <div class="dash-nav-dropdown ">
-                            <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Modificar</a>
-                            <div class="dash-nav-dropdown-menu">
-                                <a href="icons.html#regular-icons" class="dash-nav-dropdown-item">Sectores</a>
-                                <a href="icons.html#brand-icons" class="dash-nav-dropdown-item">Operador</a>
-                            </div>
-                        </div>
-                        <div class="dash-nav-dropdown ">
-                            <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Eliminar</a>
-                            <div class="dash-nav-dropdown-menu">
-                                <a href="icons.html#regular-icons" class="dash-nav-dropdown-item">Sectores</a>
-                                <a href="icons.html#brand-icons" class="dash-nav-dropdown-item">Operadores</a>
-                            </div>
-                        </div>
+                        
+                       
                     </div>
                 </div>
                 <div class="dash-nav-dropdown show">

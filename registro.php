@@ -39,20 +39,8 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
 
                             </div>
                         </div>
-                        <div class="dash-nav-dropdown ">
-                            <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Modificar</a>
-                            <div class="dash-nav-dropdown-menu">
-                                <a href="icons.html#regular-icons" class="dash-nav-dropdown-item">Sectores</a>
-                                <a href="icons.html#brand-icons" class="dash-nav-dropdown-item">Operador</a>
-                            </div>
-                        </div>
-                        <div class="dash-nav-dropdown ">
-                            <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Eliminar</a>
-                            <div class="dash-nav-dropdown-menu">
-                                <a href="icons.html#regular-icons" class="dash-nav-dropdown-item">Sectores</a>
-                                <a href="icons.html#brand-icons" class="dash-nav-dropdown-item">Operadores</a>
-                            </div>
-                        </div>
+                       
+                       
                     </div>
                 </div>
                 <div class="dash-nav-dropdown show">
@@ -178,9 +166,7 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                         <button style="margin-right:20px" type="submit" class="btn btn-primary" name="enviar">REGISTRA DATOS</button>
                      
                         
-                        <button style="margin-right:20px" type="submit" class="btn btn-primary" name="guardar">MODIFICAR</button>
-                        <button style="margin-right:20px" type="submit" class="btn btn-primary" name="guardar">ELIMINAR</button>
-
+                       
                         <div class="container">
 
                         </div>
@@ -216,7 +202,7 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
 
 
 
-                    </div><!-- div de class form-row de datos de delincuente como numero etc -->
+                    </div><!-- DIV QUE CONTENDRA UNA TABLA CON LOS DATOS DE OPERADOR -->
                     <button type="submit" class="btn btn-primary" name="buscar"> BUSCAR </button>
             </div>
 
@@ -235,10 +221,11 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                         <th scope="col">TELEFONO FIJO</th>
                         <th scope="col">TELEFONO MOVIL</th>
                         <th scope="col">EMAIL</th>
-                        <th scope="col">DOMICILIO PARTICULARN</th>>
+                        <th scope="col">DOMICILIO PARTICULARN</th>
                         <th scope="col">REGION</th>
                         <th scope="col">PROVINCIA</th>
                         <th scope="col">COMUNA</th>
+                    
 
 
                     </tr>
@@ -265,6 +252,8 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                         <th><?php echo $mostrar['REGION_ID']?></th>
                         <th><?php echo $mostrar['PROVINCIA_NOMBRE']?></th>
                         <th><?php echo $mostrar['COMUNA_NOMBRE']?></th>
+                        <th><a href="modificar-ope.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a></th>
+                        <th><a href="eliminar-ope.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a></th>
                         <!--boton para eliminar-->
                     </tr>
                     <?php
@@ -309,21 +298,21 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                             </div>
 
                         <label>NOMBRE DE USUARIO</label>
-                        <input type="text" class="form-control" placeholder="Nombre Usuario" name="nombre">
+                        <input type="text" class="form-control" placeholder="Nombre Usuario" name="nombreu">
                     </div>
                     <div class="form-group">
                         <label>CONTRASEÑA</label>
-                        <input type="password" class="form-control" placeholder="Contraseña" name="ApellidoP">
+                        <input type="password" class="form-control" placeholder="Contraseña" name="contra">
                     </div>
                     <div class="form-group">
                         <label>FECHA DE CREACION USUARIO</label>
-                        <input type="date" class="form-control" placeholder="Fecha" name="ApellidoM">
+                        <input type="date" class="form-control" placeholder="Fecha" name="fechac">
                     </div>
 
 
                     <div class="form-group">
                         <label>ASIGNACION</label>
-                        <input type="text" class="form-control" placeholder="Asignacion" name="Direccion_Domicilio">
+                        <input type="text" class="form-control" placeholder="Asignacion" name="asignacion">
                     </div>
                     <div class="form-group">
                         <label>INSTITUCION</label>
