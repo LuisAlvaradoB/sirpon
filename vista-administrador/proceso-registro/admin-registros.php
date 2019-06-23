@@ -1,3 +1,7 @@
+<?php 
+    include'../../inc/conexion.php';
+    $query = mysqli_query($con, "SELECT * FROM region");
+?>
 <!doctype html>
 <html lang="es">
 
@@ -7,8 +11,6 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" type="text/css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700"
             type="text/css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
         <link rel="stylesheet" href="../../css/spur.css" type="text/css">
 
 
@@ -146,25 +148,9 @@
                                                 </div> -->
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                                                    <div class="input-group date" id="datetimepicker4"
-                                                        data-target-input="nearest">
-                                                        <input type="text" class="form-control datetimepicker-input"
-                                                            data-target="#datetimepicker4" />
-                                                        <div class="input-group-append" data-target="#datetimepicker4"
-                                                            data-toggle="datetimepicker">
-                                                            <div class="input-group-text"><i
-                                                                    class="fas fa-calendar-alt"></i></div>
-                                                        </div>
-                                                    </div>
+                                                    
                                                 </div>
-                                                <script type="application/javascript">
-                                                (function() {
-                                                    $('#datetimepicker4').datetimepicker({
-                                                        format: 'L',
-                                                        locale: 'es-us'
-                                                    });
-                                                });
-                                                </script>
+                                                
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
@@ -219,20 +205,27 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-4">
                                                     <label for="">Región</label>
-                                                    <select class="form-control" id="combo_region">
-                                                        <option>Coquimbo</option>
+                                                    <select class="form-control" id="region" name="region">
+                                                        <option>Selecciona Región</option>
+                                                        <?php
+                                                        while ($datos = mysqli_fetch_array($query)) {
+                                                        ?>
+                                                        <option  value="<?php echo $datos['REGION_ID']?>" selected="" n><?php echo $datos['REGION_NOMBRE'] ?> </option>
+                                                        <?php
+                                                            }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="">Provincia</label>
-                                                    <select class="form-control" id="combo_provincia">
-                                                        <option>Elqui</option>
+                                                    <select class="form-control" id="provincia" name="provincia">
+                                                        <option>Selecciona Provincia</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="">Comuna</label>
-                                                    <select class="form-control" id="combo_comuna">
-                                                        <option>La Serena</option>
+                                                    <select class="form-control" id="comuna" name="comuna">
+                                                        <option>Selecciona Comuna</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -279,26 +272,8 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Registro</label>
-                                                    <div class="input-group date" id="datetimepicker2"
-                                                        data-target-input="nearest">
-                                                        <input type="text" class="form-control datetimepicker-input"
-                                                            data-target="#datetimepicker2" />
-                                                        <div class="input-group-append" data-target="#datetimepicker2"
-                                                            data-toggle="datetimepicker">
-                                                            <div class="input-group-text"><i
-                                                                    class="fas fa-calendar-alt"></i></div>
-                                                        </div>
-                                                    </div>
+                                                    
                                                 </div>
-                                                <script type="application/javascript">
-                                                (function() {
-                                                    $('#datetimepicker4').datetimepicker({
-                                                        format: 'L',
-                                                        locale: 'es-us'
-                                                    });
-                                                });
-                                                </script>
-
                                                 <div class="form-group col-md-6">
                                                     <label for="">Privilegios</label>
                                                     <select class="form-control" id="combo_comuna">
@@ -364,7 +339,7 @@
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" type="application/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" type="application/javascript"></script>
         <script type="application/javascript" src="../../js/moment.js"> </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             type="application/javascript"></script>
@@ -378,3 +353,40 @@
     </body>
 
 </html>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#region').on('change',function(){
+        var regionID = $('#region').val();
+        if(regionID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxDatos.php',
+                data:'regionID='+regionID,
+                success:function(html){
+                    $('#provincia').html(html);
+                    $('#comuna').html('<option value="">Selecciona Provincia primero</option>'); 
+                }
+            }); 
+        }else{
+            $('#provincia').html('<option value="">2</option>');
+            $('#comuna').html('<option value="">3</option>'); 
+        }
+    });
+    
+    $('#provincia').on('change',function(){
+        var provinciaID = $('#provincia').val();
+        if(provinciaID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxDatos.php',
+                data:'provinciaID='+provinciaID,
+                success:function(html){
+                    $('#comuna').html(html);
+                }
+            }); 
+        }else{
+            $('#comuna').html('<option value="">Selecciona provincia</option>'); 
+        }
+    });
+});
+</script>

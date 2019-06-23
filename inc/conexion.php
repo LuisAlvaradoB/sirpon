@@ -1,8 +1,13 @@
 <?php
-	$BBDD_host="64.37.62.74:3306";
-	$BBDD_user="pgmvvduz_adminsirpon";
-	$BBDD_pass="adminsirpon19";
-    $BBDD_BBDD="pgmvvduz_sirpon";
+	// $BBDD_host="64.37.62.74:3306";
+	// $BBDD_user="pgmvvduz_adminsirpon";
+	// $BBDD_pass="adminsirpon19";
+	// $BBDD_BBDD="pgmvvduz_sirpon";
+	
+	$BBDD_host="localhost";
+	$BBDD_user="root";
+	$BBDD_pass="";
+    $BBDD_BBDD="sirpon";
 
 
      $con=mysqli_connect($BBDD_host,$BBDD_user,$BBDD_pass);
