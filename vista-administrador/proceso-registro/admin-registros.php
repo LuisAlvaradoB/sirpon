@@ -1,7 +1,7 @@
 <?php 
     include'../../inc/conexion.php';
     $query = mysqli_query($con, "SELECT * FROM region");
-    $query1 = mysqli_query($con, "SELECT * FROM institucion");
+    $query1 = mysqli_query($con, "SELECT * FROM institución");
 ?>
 <!doctype html>
 <html lang="es">
@@ -40,10 +40,8 @@
                             <i class="far fa-edit"></i>Registros</a>
                         <div class="dash-nav-dropdown-menu">
                             <a href="#" class="dash-nav-dropdown-item">Registrar</a>
-                            <a href="admin-modificaciones.php"
-                                class="dash-nav-dropdown-item">Modificar</a>
-                            <a href="admin-eliminar.php"
-                                class="dash-nav-dropdown-item">Eliminar</a>
+                            <a href="admin-modificaciones.php" class="dash-nav-dropdown-item">Modificar</a>
+                            <a href="admin-eliminar.php" class="dash-nav-dropdown-item">Eliminar</a>
                         </div>
                     </div>
 
@@ -119,13 +117,13 @@
                                 <h4 class="dash-title">Registrar Usuarios / Instituciones</h4>
                             </div>
                             <div class="col">
-                            <h4 class="dash-title text-right" id="fechaActual+reloj"></h4>
+                                <h4 class="dash-title text-right" id="fechaActual+reloj"></h4>
                             </div>
                         </div>
                         <hr>
                         <!-- put your rows / columns here -->
                         <div class="row">
-                        
+
                             <div class="col-xs-12 col-lg-12">
                                 <div class="card spur-card">
                                     <div class="card-header">
@@ -139,8 +137,8 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="inputEmail4">Rut</label>
-                                                    <input type="Rut" class="form-control" id="Rut"
-                                                        placeholder="18.545.175-k">
+                                                    <input type="text" minlength="10" maxlength="10"
+                                                        class="form-control" id="Rut" placeholder="18545175-k" required>
                                                 </div>
                                                 <!-- <div class="form-group col-md-6">
                                                     <label for="inputPassword4">Fecha de Nacimiento</label>
@@ -149,49 +147,52 @@
                                                 </div> -->
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha" name="fechaNacimiento">
+                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha"
+                                                        name="fechaNacimiento" required>
                                                 </div>
-                                                
+
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for=" ">Nombre</label>
-                                                    <input type="text" class="form-control" id="nombre_persona"
-                                                        placeholder="Jorge">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="nombre_persona" placeholder="Jorge" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Segundo Nombre</label>
-                                                    <input type="text" class="form-control" id="nombre_persona2"
-                                                        placeholder="Andrés">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="nombre_persona2" placeholder="Andrés" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="">Apellido Paterno</label>
-                                                    <input type="text" class="form-control" id="apellidop_persona"
-                                                        placeholder="Gonzales">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="apellidop_persona" placeholder="Gonzales" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Apellido Materno</label>
-                                                    <input type="text" class="form-control" id="apellidom_persona"
-                                                        placeholder="Delgado">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="apellidom_persona" placeholder="Delgado" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-row">
                                                 <div class="form-group col-md-3">
                                                     <label for="">Teléfono Fijo</label>
-                                                    <input type="text" class="form-control" id="telefono_fijo"
+                                                    <input type="tel" minlength="9" pattern="[0-9]{9}"
+                                                        class="form-control" id="telefono_fijo"
                                                         placeholder="51 2 45 58 69">
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                     <label for="">Teléfono Móvil</label>
-                                                    <input type="text" class="form-control" id="telefono_movil"
-                                                        placeholder="+56 9 6130 0066">
+                                                    <input type="tel" minlength="9" pattern="[0-9]{9}"
+                                                        class="form-control" id="telefono_movil"
+                                                        placeholder="9 6130 0066">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Correo Electrónico</label>
-                                                    <input type="text" class="form-control" id="correo_electronico"
+                                                    <input type="email" class="form-control" id="correo_electronico"
                                                         placeholder="ejemplo@gmail.com">
                                                 </div>
                                             </div>
@@ -207,11 +208,12 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="">Región</label>
                                                     <select class="form-control" id="region" name="region">
-                                                        <option >Selecciona Región</option>
+                                                        <option selected>Selecciona Región</option>
                                                         <?php
                                                         while ($datos = mysqli_fetch_array($query)) {
                                                         ?>
-                                                        <option  value="<?php echo $datos['REGION_ID']?>" selected="" n><?php echo $datos['REGION_NOMBRE'] ?> </option>
+                                                        <option value="<?php echo $datos['REGION_ID']?>">
+                                                            <?php echo $datos['REGION_NOMBRE'] ?> </option>
                                                         <?php
                                                             }
                                                         ?>
@@ -220,13 +222,13 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="">Provincia</label>
                                                     <select class="form-control" id="provincia" name="provincia">
-                                                        <option >Selecciona Provincia</option>
+                                                        <option>Selecciona Provincia</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="">Comuna</label>
                                                     <select class="form-control" id="comuna" name="comuna">
-                                                        <option >Selecciona Comuna</option>
+                                                        <option>Selecciona Comuna</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -245,10 +247,10 @@
                                     </div>
                                 </div>
                             </div>
-                           
+
                         </div>
                         <div class="row">
-                        <div class="col-xs-12 col-lg-6">
+                            <div class="col-xs-12 col-lg-6">
                                 <div class="card spur-card">
                                     <div class="card-header">
                                         <div class="spur-card-icon">
@@ -260,25 +262,35 @@
                                         <form>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Nombre de Usuario</label>
+                                                    <label for="">Nombre de Usuario</label>
                                                     <input type="nickname" class="form-control" id="nombre_usuario"
-                                                        placeholder="Feli292">
+                                                        placeholder="BeastMaster69">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Contraseña</label>
+                                                    <label for="">Contraseña</label>
                                                     <input type="password" class="form-control" id="contraseña"
                                                         placeholder="Contraseña">
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" onclick="mostrarContraseña()" class="custom-control-input"
+                                                                id="mostrar_contraseña">
+                                                            <label class="custom-control-label" for="mostrar_contraseña">Mostrar Contraseña</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Registro</label>
-                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha" name="fechaNacimientoUsuario">
+                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha"
+                                                        name="fechaNacimientoUsuario">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Privilegios</label>
-                                                    <select class="form-control" id="combo_comuna">
+                                                    <select class="form-control" id="jefeszonas">
+                                                        <option selected>Selecciona Privilegios</option>
                                                         <option>Jefe de Zona</option>
+                                                        <option>Operador</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -286,10 +298,17 @@
 
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
-                                                    <label for="inputState">Institución a la que pertence</label>
-                                                    <select id="inputState" class="form-control">
-                                                        <option selected>Carabineros de Chile</option>
-                                                        <option>...</option>
+                                                    <label for="instituciones">Institución a la que pertence</label>
+                                                    <select id="instituciones" class="form-control">
+                                                        <option selected>Selecciona Institución</option>
+                                                        <?php
+                                                            while ($datos = mysqli_fetch_array($query1)) {
+                                                        ?>
+                                                        <option value="<?php echo $datos['INSTITUCION_ID']?>">
+                                                            <?php echo $datos['NOMBRE_INSTITUCION'] ?> </option>
+                                                        <?php
+                                                            }
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -301,7 +320,8 @@
                                                         custom checkbox</label>
                                                 </div>
                                             </div> -->
-                                            <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button>
+                                            <button type="submit"
+                                                class="btn btn-primary btn-block my-4">Registrar</button>
                                         </form>
                                     </div>
                                 </div>
@@ -319,16 +339,17 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="inputEmail4">Nombre de la Institución</label>
-                                                    <input type="nombre_institución" class="form-control" id="nombre_institución"
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" id="nombre_institución"
                                                         placeholder="Seguridad Ciudadana">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Persona a Cargo</label>
-                                                    <input type="password" class="form-control" id="persona_acargo"
+                                                    <label for="">Persona a Cargo</label>
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" id="persona_acargo"
                                                         placeholder="">
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button>
+                                            <button type="submit"
+                                                class="btn btn-primary btn-block my-4">Registrar</button>
                                         </form>
                                     </div>
                                 </div>
@@ -341,7 +362,6 @@
         </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.js" type="application/javascript"></script>
-        <script type="application/javascript" src="../../js/moment.js"> </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             type="application/javascript"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
@@ -351,40 +371,55 @@
     </body>
 
 </html>
+<!-- Funciones para Actualizar los combobox region-provincia-comuna -->
 <script type="text/javascript">
-$(document).ready(function(){
-    $('#region').on('change',function(){
+$(document).ready(function() {
+    $('#region').on('change', function() {
         var regionID = $('#region').val();
-        if(regionID){
+        if (regionID) {
             $.ajax({
-                type:'POST',
-                url:'ajaxDatos.php',
-                data:'regionID='+regionID,
-                success:function(html){
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'regionID=' + regionID,
+                success: function(html) {
                     $('#provincia').html(html);
-                    $('#comuna').html('<option value="">Selecciona Provincia primero</option>'); 
+                    $('#comuna').html(
+                        '<option value="">Selecciona Provincia primero</option>');
                 }
-            }); 
-        }else{
+            });
+        } else {
             $('#provincia').html('<option value="">2</option>');
-            $('#comuna').html('<option value="">3</option>'); 
+            $('#comuna').html('<option value="">3</option>');
         }
     });
-    
-    $('#provincia').on('change',function(){
+
+    $('#provincia').on('change', function() {
         var provinciaID = $('#provincia').val();
-        if(provinciaID){
+        if (provinciaID) {
             $.ajax({
-                type:'POST',
-                url:'ajaxDatos.php',
-                data:'provinciaID='+provinciaID,
-                success:function(html){
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'provinciaID=' + provinciaID,
+                success: function(html) {
                     $('#comuna').html(html);
                 }
-            }); 
-        }else{
-            $('#comuna').html('<option value="">Selecciona provincia</option>'); 
+            });
+        } else {
+            $('#comuna').html('<option value="">Selecciona provincia</option>');
         }
     });
 });
 </script>
+<!-- --------------------------------------------------------------------------- -->
+<!-- Funcion para mostrar la contraseña -->
+<script>
+    function mostrarContraseña() {
+  var x = document.getElementById("contraseña");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+} 
+</script>
+<!-- ----------------------------------- -->
