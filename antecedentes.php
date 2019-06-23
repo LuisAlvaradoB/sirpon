@@ -50,11 +50,16 @@ $query3 = mysqli_query($con, "SELECT * FROM tipo_de_delito");
                                 <div class="card-body ">
                                     <form action="registro-antecedentes.php" method="POST" >
                                         <div class="form-group">
-                                    
+                                        <div class="form-group">
+                                            <label >RUT</label>
+                                            <input type="text" class="form-control"  name="rut">
+                                        </div>
+                                       
                                         <div class="form-group">
                                             <label >Dirección del Delito</label>
                                             <input type="text" class="form-control"  placeholder="Dirección Delito" name="direc">
                                         </div>
+
                                        
                                               
                                         <div class="form-group">
@@ -82,7 +87,7 @@ $query3 = mysqli_query($con, "SELECT * FROM tipo_de_delito");
 
                                     ?>
                                      
-                                    <option  value="<?php echo $datos['TIPO_DELITO_ID']?>" selected=""><?php echo $datos['NOMBRE'] ?> </option>
+                                    <option  value="<?php echo $datos['TIPO_DELITO_ID']?>" selected=""><?php echo $datos['NOMBRE_TIPO'] ?> </option>
                                            
                                 <?php
                                  }

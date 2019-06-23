@@ -46,30 +46,29 @@ include'conexion.php';
                     <h1 class="dash-title">Bienvenido - Sistema Integrado da Prevención Online</h1>
                     <!-- put your rows / columns here -->
                     <div class="spur-card-title"> Detalle delito segun delincuente </div>
-                                </div>
-                                <div class="card-body ">
-                                <table class="table">
+                               
+                              
+           <table class="table">
                                    
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">RUT</th>
-      <th scope="col">NOMBRE</th>
-      <th scope="col">FECHA DELITO</th>
-      <th scope="col">HORA DELITO</th>
-      <th scope="col">TIPO DE DELITO</th>
-      <th scope="col">ESTADO DE CONDENA</th>
-      <th scope="col">DESCRIPCION DE DELITO</th>
-      
-    </tr>
+           <thead class="thead-dark">
+  
+  <tr>
+    <th scope="col">RUT</th>
+    <th scope="col">NOMBRE</th>
+    <th scope="col">APELLIDO PA.</th>
+    <th scope="col">DIRECION</th>
+    <th scope="col">APODO DELINCUENTE</th>
+    <th scope="col">ULTIMO LUGAR VISTO</th>
+    <th scope="col">ESTADO</th>
+    <th scope="col">AGREGAR NUEVO ANTECEDENTE</th>
+  </tr>
+</thead>
   </thead>
-  <tbody>
-    <tr>
     <?php 
 
 
-if(isset($_POST['detalle'])  ){
-    $rut=$_POST['rut'];
-     $sql = "SELECT PER.RUT, PER.NOMBRE, DCM.FECHA_DELITO, DCM.HORA_DELITO,  DCM.TIPO_DELITO, DCM.ESTADO_DELITO FROM persona PER INNER JOIN delincuente_delito DCM ON delitos_cometido DC WHERE PER.RUT=$rut AND DCM.RUT=$rut AND DCM.DELITO_ID=DC.DELITO_ID"   ;         // consulta para ver todas la ventas 
+   
+    $sql = "SELECT PER.RUT, PER.NOMBRE, PER.APELLIDO_PA, PER.DOMICILIO_PARTICULAR,  del.APODO_DELINCUENTE, del.ULTIMO_LUGAR_VISTO, del.ESTADO_PENAL FROM persona PER INNER JOIN delicuente del WHERE PER.RUT=del.RUT";         // consulta para ver todas la ventas 
      $result= mysqli_query($con,$sql);
 		if(mysqli_num_rows($result) > 0){
 	     while($row = mysqli_fetch_array($result))
@@ -77,31 +76,24 @@ if(isset($_POST['detalle'])  ){
 			?>
             <!--tabla-->
             <tr>
-             <!--llenar los datos-->
-            <td><?php echo $row["RUT"];?></td>     
-            <td><?php echo $row["NOMBRE"];?></td>
-            <td><?php echo $row["APELLIDO_PA"];?></td>
-            <td><?php echo $row["DOMICILIO_PARTICULAR"];?></td>
-            <td><?php echo $row["APODO_DELINCUENTE"];?></td>
-            <td><?php echo $row["ULTIMO_LUGAR_VISTO"];?></td>
-            <td><?php echo $row["ESTADO_PENAL"]; ?></td>
-            <th><a href="antecedentes-delincuente.php"><span class="text-danger">DETALLE</span></a></th>   <!--boton para eliminar-->
-             <th><a href="antecedentes.php"><span class="text-danger">NUEVO</span></a></th>   <!--boton para eliminar-->
-		     </tr>
+                <!--llenar los datos-->
+               <td><?php echo $row["RUT"];?></td>     
+               <td><?php echo $row["NOMBRE"];?></td>
+               <td><?php echo $row["APELLIDO_PA"];?></td>
+               <td><?php echo $row["DOMICILIO_PARTICULAR"];?></td>
+               <td><?php echo $row["APODO_DELINCUENTE"];?></td>
+               <td><?php echo $row["ULTIMO_LUGAR_VISTO"];?></td>
+               <td><?php echo $row["ESTADO_PENAL"]; ?></td>
+               <th><a href="antecedentes.php"><span class="text-danger">NUEVO</span></a></th>   <!--boton para eliminar-->
+                </tr>
             <?php
         }
-      }else{
-        echo '<script>alert("NO HAY REGISTRO DE ANTECEDENTES ")</script>';
-		echo '<script>window.location="page-operador.php"</script>';  
-        
       }
-    }
       ?>
-    </tr>
-
-  </tbody>
+    
+  
 </table>
-                               
+</body>                            
                                 </div>
                 </div>
             </main>

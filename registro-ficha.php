@@ -35,7 +35,7 @@ $Comuna=$_POST["comuna"];
 
             $result2=mysqli_query($con,$sql1);
 echo '<script>alert("usuario registrado con exito")</script>';
-	echo '<script>window.location="page-operador.php"</script>';
+	echo '<script>window.location="antecedentes.php"</script>';
 		
 	}else{
 	
