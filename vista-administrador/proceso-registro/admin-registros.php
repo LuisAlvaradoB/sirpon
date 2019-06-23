@@ -150,7 +150,7 @@
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Nacimiento</label>
                                                     <input type="date" class="form-control" placeholder="Ingresa Fecha"
-                                                        name="fechaNacimiento" required>
+                                                        name="fechaNacimiento" id="fechaNacimiento" required>
                                                 </div>
 
                                             </div>
@@ -340,7 +340,7 @@
                                         <form>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Nombre de la Institución</label>
+                                                    <label for="">Nombre de la Institución</label>
                                                     <input type="text" pattern="[a-zA-Z]+" class="form-control" id="nombre_institución"
                                                         placeholder="Seguridad Ciudadana">
                                                 </div>

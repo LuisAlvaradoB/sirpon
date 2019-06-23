@@ -7,8 +7,6 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" type="text/css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700"
             type="text/css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
         <link rel="stylesheet" href="../../css/spur.css" type="text/css">
 
 
@@ -155,16 +153,12 @@
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" type="application/javascript"></script>
-        <script type="application/javascript" src="../../js/moment.js"> </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" type="application/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             type="application/javascript"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             type="application/javascript"></script>
         <script src="../../js/spur.js" type="application/javascript"></script>
-        <script type="application/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js">
-        </script>
         <script src="../../js/reloj.js" type="application/javascript"></script>
 
     </body>

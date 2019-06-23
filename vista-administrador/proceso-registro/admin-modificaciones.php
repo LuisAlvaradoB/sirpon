@@ -1,3 +1,8 @@
+<?php 
+    include'../../inc/conexion.php';
+    $query = mysqli_query($con, "SELECT * FROM region");
+    $query1 = mysqli_query($con, "SELECT * FROM institución");
+?>
 <!doctype html>
 <html lang="es">
 
@@ -8,7 +13,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700"
             type="text/css">
         <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
         <link rel="stylesheet" href="../../css/spur.css" type="text/css">
         <link rel="stylesheet" href="../../css/style.css" type="text/css">
 
@@ -139,6 +143,7 @@
                             </div>
                         </div>
                         <div class="row">
+
                             <div class="col-xs-12 col-lg-12">
                                 <div class="card spur-card">
                                     <div class="card-header">
@@ -148,13 +153,15 @@
                                         <div class="spur-card-title"> Datos personales </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form>
+                                        <form class="">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Rut</label>
-                                                    <input type="Rut" class="form-control" id="Rut"
-                                                        placeholder="18.545.175-k">
+                                                    <label for="Rut">Rut</label>
+                                                    <input type="text" minlength="10" maxlength="10"
+                                                        class="form-control" id="Rut" placeholder="18545175-k" required oninput="checkRut(this)" required>
+                                                        <script src="../../js/validar-rut.js"></script>
                                                 </div>
+                                                
                                                 <!-- <div class="form-group col-md-6">
                                                     <label for="inputPassword4">Fecha de Nacimiento</label>
                                                     <input type="fecha_nacimiento" class="form-control"
@@ -162,65 +169,52 @@
                                                 </div> -->
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                                                    <div class="input-group date" id="datetimepicker4"
-                                                        data-target-input="nearest">
-                                                        <input type="text" class="form-control datetimepicker-input"
-                                                            data-target="#datetimepicker4" />
-                                                        <div class="input-group-append" data-target="#datetimepicker4"
-                                                            data-toggle="datetimepicker">
-                                                            <div class="input-group-text"><i
-                                                                    class="fas fa-calendar-alt"></i></div>
-                                                        </div>
-                                                    </div>
+                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha"
+                                                        name="fechaNacimiento" id="fechaNacimiento" required>
                                                 </div>
-                                                <script type="application/javascript">
-                                                (function() {
-                                                    $('#datetimepicker4').datetimepicker({
-                                                        format: 'L',
-                                                        locale: 'es-us'
-                                                    });
-                                                });
-                                                </script>
+
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for=" ">Nombre</label>
-                                                    <input type="text" class="form-control" id="nombre_persona"
-                                                        placeholder="Jorge">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="nombre_persona" placeholder="Jorge" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Segundo Nombre</label>
-                                                    <input type="text" class="form-control" id="nombre_persona2"
-                                                        placeholder="Andrés">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="nombre_persona2" placeholder="Andrés" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="">Apellido Paterno</label>
-                                                    <input type="text" class="form-control" id="apellidop_persona"
-                                                        placeholder="Gonzales">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="apellidop_persona" placeholder="Gonzales" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Apellido Materno</label>
-                                                    <input type="text" class="form-control" id="apellidom_persona"
-                                                        placeholder="Delgado">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="apellidom_persona" placeholder="Delgado" required>
                                                 </div>
                                             </div>
 
                                             <div class="form-row">
                                                 <div class="form-group col-md-3">
                                                     <label for="">Teléfono Fijo</label>
-                                                    <input type="text" class="form-control" id="telefono_fijo"
+                                                    <input type="tel" minlength="9" pattern="[0-9]{9}"
+                                                        class="form-control" id="telefono_fijo"
                                                         placeholder="51 2 45 58 69">
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                     <label for="">Teléfono Móvil</label>
-                                                    <input type="text" class="form-control" id="telefono_movil"
-                                                        placeholder="+56 9 6130 0066">
+                                                    <input type="tel" minlength="9" pattern="[0-9]{9}"
+                                                        class="form-control" id="telefono_movil"
+                                                        placeholder="9 6130 0066">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Correo Electrónico</label>
-                                                    <input type="text" class="form-control" id="correo_electronico"
+                                                    <input type="email" class="form-control" id="correo_electronico"
                                                         placeholder="ejemplo@gmail.com">
                                                 </div>
                                             </div>
@@ -235,20 +229,28 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-4">
                                                     <label for="">Región</label>
-                                                    <select class="form-control" id="combo_region">
-                                                        <option>Coquimbo</option>
+                                                    <select class="form-control" id="region" name="region">
+                                                        <option selected>Selecciona Región</option>
+                                                        <?php
+                                                        while ($datos = mysqli_fetch_array($query)) {
+                                                        ?>
+                                                        <option value="<?php echo $datos['REGION_ID']?>">
+                                                            <?php echo $datos['REGION_NOMBRE'] ?> </option>
+                                                        <?php
+                                                            }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="">Provincia</label>
-                                                    <select class="form-control" id="combo_provincia">
-                                                        <option>Elqui</option>
+                                                    <select class="form-control" id="provincia" name="provincia">
+                                                        <option>Selecciona Provincia</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="">Comuna</label>
-                                                    <select class="form-control" id="combo_comuna">
-                                                        <option>La Serena</option>
+                                                    <select class="form-control" id="comuna" name="comuna">
+                                                        <option>Selecciona Comuna</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -282,43 +284,35 @@
                                         <form>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Nombre de Usuario</label>
+                                                    <label for="">Nombre de Usuario</label>
                                                     <input type="nickname" class="form-control" id="nombre_usuario"
-                                                        placeholder="Feli292">
+                                                        placeholder="BeastMaster69">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Contraseña</label>
+                                                    <label for="">Contraseña</label>
                                                     <input type="password" class="form-control" id="contraseña"
                                                         placeholder="Contraseña">
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" onclick="mostrarContraseña()" class="custom-control-input"
+                                                                id="mostrar_contraseña">
+                                                            <label class="custom-control-label" for="mostrar_contraseña">Mostrar Contraseña</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Registro</label>
-                                                    <div class="input-group date" id="datetimepicker2"
-                                                        data-target-input="nearest">
-                                                        <input type="text" class="form-control datetimepicker-input"
-                                                            data-target="#datetimepicker2" />
-                                                        <div class="input-group-append" data-target="#datetimepicker2"
-                                                            data-toggle="datetimepicker">
-                                                            <div class="input-group-text"><i
-                                                                    class="fas fa-calendar-alt"></i></div>
-                                                        </div>
-                                                    </div>
+                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha"
+                                                        name="fechaNacimientoUsuario">
                                                 </div>
-                                                <script type="application/javascript">
-                                                (function() {
-                                                    $('#datetimepicker4').datetimepicker({
-                                                        format: 'L',
-                                                        locale: 'es-us'
-                                                    });
-                                                });
-                                                </script>
-
                                                 <div class="form-group col-md-6">
                                                     <label for="">Privilegios</label>
-                                                    <select class="form-control" id="combo_comuna">
+                                                    <select class="form-control" id="jefeszonas">
+                                                        <option selected>Selecciona Privilegios</option>
                                                         <option>Jefe de Zona</option>
+                                                        <option>Operador</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -326,10 +320,17 @@
 
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
-                                                    <label for="inputState">Institución a la que pertence</label>
-                                                    <select id="inputState" class="form-control">
-                                                        <option selected>Carabineros de Chile</option>
-                                                        <option>...</option>
+                                                    <label for="instituciones">Institución a la que pertence</label>
+                                                    <select id="instituciones" class="form-control">
+                                                        <option selected>Selecciona Institución</option>
+                                                        <?php
+                                                            while ($datos = mysqli_fetch_array($query1)) {
+                                                        ?>
+                                                        <option value="<?php echo $datos['INSTITUCION_ID']?>">
+                                                            <?php echo $datos['NOMBRE_INSTITUCION'] ?> </option>
+                                                        <?php
+                                                            }
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -359,13 +360,13 @@
                                         <form>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Nombre de la Institución</label>
-                                                    <input type="nombre_institución" class="form-control"
-                                                        id="nombre_institución" placeholder="Seguridad Ciudadana">
+                                                    <label for="">Nombre de la Institución</label>
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" id="nombre_institución"
+                                                        placeholder="Seguridad Ciudadana">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Persona a Cargo</label>
-                                                    <input type="password" class="form-control" id="persona_acargo"
+                                                    <label for="">Persona a Cargo</label>
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" id="persona_acargo"
                                                         placeholder="">
                                                 </div>
                                             </div>
@@ -382,18 +383,66 @@
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" type="application/javascript"></script>
-        <script type="application/javascript" src="../../js/moment.js"> </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" type="application/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             type="application/javascript"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             type="application/javascript"></script>
         <script src="../../js/spur.js" type="application/javascript"></script>
-        <script type="application/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js">
-        </script>
         <script src="../../js/reloj.js" type="application/javascript"></script>
 
     </body>
 
 </html>
+<!-- Funciones para Actualizar los combobox region-provincia-comuna -->
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#region').on('change', function() {
+        var regionID = $('#region').val();
+        if (regionID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'regionID=' + regionID,
+                success: function(html) {
+                    $('#provincia').html(html);
+                    $('#comuna').html(
+                        '<option value="">Selecciona Provincia primero</option>');
+                }
+            });
+        } else {
+            $('#provincia').html('<option value="">2</option>');
+            $('#comuna').html('<option value="">3</option>');
+        }
+    });
+
+    $('#provincia').on('change', function() {
+        var provinciaID = $('#provincia').val();
+        if (provinciaID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'provinciaID=' + provinciaID,
+                success: function(html) {
+                    $('#comuna').html(html);
+                }
+            });
+        } else {
+            $('#comuna').html('<option value="">Selecciona provincia</option>');
+        }
+    });
+});
+</script>
+<!-- --------------------------------------------------------------------------- -->
+<!-- Funcion para mostrar la contraseña -->
+<script>
+    function mostrarContraseña() {
+  var x = document.getElementById("contraseña");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+} 
+</script>
+<!-- ----------------------------------- -->
