@@ -133,13 +133,15 @@
                                         <div class="spur-card-title"> Datos personales </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form>
+                                        <form class="">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Rut</label>
+                                                    <label for="Rut">Rut</label>
                                                     <input type="text" minlength="10" maxlength="10"
-                                                        class="form-control" id="Rut" placeholder="18545175-k" required>
+                                                        class="form-control" id="Rut" placeholder="18545175-k" required oninput="checkRut(this)" required>
+                                                        <script src="../../js/validar-rut.js"></script>
                                                 </div>
+                                                
                                                 <!-- <div class="form-group col-md-6">
                                                     <label for="inputPassword4">Fecha de Nacimiento</label>
                                                     <input type="fecha_nacimiento" class="form-control"
