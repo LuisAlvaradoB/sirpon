@@ -5,10 +5,12 @@ $query = mysqli_query($con, "SELECT * FROM region ");
 $query1 = mysqli_query($con, "SELECT * FROM provincia");
 $query2= mysqli_query($con, "SELECT  * FROM comuna");
 $query3= mysqli_query($con, "SELECT  * FROM persona");
+$query4= mysqli_query($con, "SELECT  * FROM institución");
 
 
 
 ?>
+
 
 
 
@@ -70,19 +72,20 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                         <div class="form-group">
                             <div class="form-group">
                                 <label>RUT</label>
-                                <input type="text" class="form-control" placeholder="ejem 18.700.672-0" name="Rut">
+                                <input minlength="10" maxlength="10" type="text" class="form-control" placeholder="ejem 18.700.672-0" name="Rut" required
+                                                        oninput="checkRut(this)" required>
                             </div>
 
-                            <label>NOMBRES COMPPLETO</label>
-                            <input type="text" class="form-control" placeholder="Nombre" name="nombre">
+                            <label>NOMBRES COMPLETO</label>
+                            <input type="text" class="form-control"  maxlength="30" pattern="[a-zA-Z]+" placeholder="Nombre" name="nombre">
                         </div>
                         <div class="form-group">
                             <label>APELLIDO PATERNO</label>
-                            <input type="text" class="form-control" placeholder="Apellido Paterno" name="ApellidoP">
+                            <input type="text" class="form-control"  maxlength="30" pattern="[a-zA-Z]+" placeholder="Apellido Paterno" name="ApellidoP">
                         </div>
                         <div class="form-group">
                             <label>APELLIDO MATERNO</label>
-                            <input type="text" class="form-control" placeholder="Apellido Materno" name="ApellidoM">
+                            <input type="text" class="form-control"  maxlength="30" pattern="[a-zA-Z]+" placeholder="Apellido Materno" name="ApellidoM">
                         </div>
 
 
@@ -99,11 +102,11 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
 
                             <div class="form-group col-md-3">
                                 <label>TELEFONO CELULAR</label>
-                                <input type="text" class="form-control" placeholder="+569..." name="num_telefono_celular">
+                                <input type="text" onkeypress="return numeros(event)"  maxlength="9" pattern="[0-9]{9}" class="form-control" placeholder="5345345." name="num_telefono_celular">
                             </div>
                             <div class="form-group col-md-3">
                                 <label>TELEFONO RED FIJA</label>
-                                <input type="text" class="form-control" placeholder="ejem,02 42 46..." name="Telefono_Fijo">
+                                <input type="text" onkeypress="return numeros(event)"  maxlength="9" pattern="[0-9]{9}" class="form-control" placeholder="ejem,02 42 46..." name="Telefono_Fijo">
                             </div>
                             <div class="form-group col-md-3">
                                 <label>CORREO ELECTRONICO</label>
@@ -115,7 +118,7 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
 
                             <div class="form-group col-md-4">
                                 <label>REGION</label>
-                                <select class="form-control" name="region">
+                                <select class="form-control" id="region" name="region">
                                 <option>seleccione</option>
                                     <?php
                                     while ($datos = mysqli_fetch_array($query)) {
@@ -132,14 +135,14 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
 
                             <div class="form-group col-md-4">
                                 <label>PROVINCIA</label>
-                                <select class="form-control" name="provincia">
-                                <option>seleccione</option>
+                                <select class="form-control" id="provincia" name="provincia">
+                                <option selected>seleccione</option>
                                 <?php
                                     while ($datos1 = mysqli_fetch_array($query1)) {
 
                                         ?>
                                         
-                                        <option value="<?php echo $datos1['PROVINCIA_ID'] ?>" selected="1"><?php echo $datos1['PROVINCIA_NOMBRE'] ?> </option>
+                                        <option value="<?php echo $datos1['PROVINCIA_ID'] ?>" ><?php echo $datos1['PROVINCIA_NOMBRE'] ?> </option>
                                     <?php
                                 }
                                 ?>
@@ -148,7 +151,7 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
 
                             <div class="form-group col-md-4">
                                 <label>COMUNA</label>
-                                <select class="form-control" name="comuna">
+                                <select class="form-control" id="comuna" name="comuna">
                                 <option>seleccione</option>
                                 <?php
                                     while ($datos2 = mysqli_fetch_array($query2)) {
@@ -203,7 +206,7 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
 
 
                     </div><!-- DIV QUE CONTENDRA UNA TABLA CON LOS DATOS DE OPERADOR -->
-                    <button type="submit" class="btn btn-primary" name="buscar"> BUSCAR </button>
+                    <button type="submit" class="btn btn-primary" class="searchbox-input"name="buscar"> BUSCAR </button>
             </div>
 
             </form>
@@ -279,7 +282,7 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                 <div class="spur-card-title">Operador </div>
             </div>
             <div class="card-body ">
-                <form action="" method="POST">
+                <form action="registro-usuario.php" method="POST">
                     <div class="form-group">
                     <div class="form-group col-md-4">
                                 <label>RUT</label>
@@ -289,7 +292,7 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                                     while ($datos3 = mysqli_fetch_array($query3)) {
 
                                         ?>
-                                        <option  value="0" selected=""><?php echo $datos3['RUT'] ?> </option>
+                                        <option  value="<?php echo $datos3['RUT'] ?>" selected=""><?php echo $datos3['RUT'] ?> </option>
                                     <?php
                                 }
                                 ?>
@@ -298,15 +301,23 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                             </div>
 
                         <label>NOMBRE DE USUARIO</label>
-                        <input type="text" class="form-control" placeholder="Nombre Usuario" name="nombreu">
+                        <input type="text" class="form-control" placeholder="Nombre Usuario" name="nombreuser">
                     </div>
                     <div class="form-group">
                         <label>CONTRASEÑA</label>
                         <input type="password" class="form-control" placeholder="Contraseña" name="contra">
+                        <div class="form-group">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" onclick="mostrarContraseña()"
+                                                                class="custom-control-input" id="mostrar_contraseña">
+                                                            <label class="custom-control-label"
+                                                                for="mostrar_contraseña">Mostrar Contraseña</label>
+                                                        </div>
+                                                    </div>
                     </div>
                     <div class="form-group">
                         <label>FECHA DE CREACION USUARIO</label>
-                        <input type="date" class="form-control" placeholder="Fecha" name="fechac">
+                        <input type="date" class="form-control" placeholder="Fecha" name="fechacr">
                     </div>
 
 
@@ -314,13 +325,23 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                         <label>ASIGNACION</label>
                         <input type="text" class="form-control" placeholder="Asignacion" name="asignacion">
                     </div>
-                    <div class="form-group">
-                        <label>INSTITUCION</label>
-                        <input type="text" class="form-control" placeholder="Institucion" name="Direccion_Domicilio">
-                    </div>
-                    <div class="form-row">
+                    <div class="form-group col-md-4">
+                                <label>INSTITUCION</label>
+                                <select class="form-control" name="institucion">
+                                <option>seleccione</option>
+                                    <?php
+                                    while ($datos4 = mysqli_fetch_array($query4)) {
 
-                        <button type="submit" class="btn btn-primary" name="guardar">REGISTRA DATOS</button>
+                                        ?>
+                                        <option  value="<?php echo $datos4['INSTITUCION_ID'] ?>" selected=""><?php echo $datos4['NOMBRE_INSTITUCION'] ?> </option>
+                                    <?php
+                                }
+                                ?>
+
+                                </select>
+                            </div>
+
+                        <button type="submit" class="btn btn-primary" name="guardarus">REGISTRA DATOS</button>
 
                         <div class="container">
 
@@ -332,6 +353,117 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
         </main>
 
     </div>
+<script>
+function numeros(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " 0123456789";
+    especiales = [8,37,39,46];
+ 
+    tecla_especial = false
+    for(var i in especiales){
+ if(key == especiales[i]){
+     tecla_especial = true;
+     break;
+        } 
+    }
+ 
+    if(letras.indexOf(tecla)==-1 && !tecla_especial)
+        return false;
+}
 
+</script>
+
+
+<!-- <script>
+function checkRut(Rut) {
+    // Despejar Puntos
+    var valor = Rut.value.replace('.','');
+    // Despejar Guión
+    valor = valor.replace('-','');
+    
+    // Aislar Cuerpo y Dígito Verificador
+    cuerpo = valor.slice(0,-1);
+    dv = valor.slice(-1).toUpperCase();
+    
+    // Formatear RUN
+    Rut.value = cuerpo + '-'+ dv
+    
+    // Si no cumple con el mínimo ej. (n.nnn.nnn)
+    if(cuerpo.length < 7) { Rut.setCustomValidity("Rut Incompleto"); return false;}
+    
+    // Calcular Dígito Verificador
+    suma = 0;
+    multiplo = 2;
+    
+    // Para cada dígito del Cuerpo
+    for(i=1;i<=cuerpo.length;i++) {
+    
+        // Obtener su Producto con el Múltiplo Correspondiente
+        index = multiplo * valor.charAt(cuerpo.length - i);
+        
+        // Sumar al Contador General
+        suma = suma + index;
+        
+        // Consolidar Múltiplo dentro del rango [2,7]
+        if(multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
+  
+    }
+    
+    // Calcular Dígito Verificador en base al Módulo 11
+    dvEsperado = 11 - (suma % 11);
+    
+    // Casos Especiales (0 y K)
+    dv = (dv == 'K')?10:dv;
+    dv = (dv == 0)?11:dv;
+    
+    // Validar que el Cuerpo coincide con su Dígito Verificador
+    if(dvEsperado != dv) { Rut.setCustomValidity("Rut Inválido"); return false; }
+    
+    // Si todo sale bien, eliminar errores (decretar que es válido)
+    Rut.setCustomValidity('');
+}
+</script> -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#region').on('change', function() {
+        var regionID = $('#region').val();
+        if (regionID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'regionID=' + regionID,
+                success: function(html) {
+                    $('#provincia').html(html);
+                    $('#comuna').html(
+                        '<option value="">Selecciona Provincia primero</option>');
+                }
+            });
+        } else {
+            $('#provincia').html('<option value="">2</option>');
+            $('#comuna').html('<option value="">3</option>');
+        }
+    });
+
+    $('#provincia').on('change', function() {
+        var provinciaID = $('#provincia').val();
+        if (provinciaID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'provinciaID=' + provinciaID,
+                success: function(html) {
+                    $('#comuna').html(html);
+                }
+            });
+        } else {
+            $('#comuna').html('<option value="">Selecciona provincia</option>');
+        }
+    });
+});
+</script>
+
+<!-- Funcion para mostrar la contraseña -->
 
     <?php include 'footer.php'; ?>

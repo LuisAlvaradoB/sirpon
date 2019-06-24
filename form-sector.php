@@ -126,6 +126,7 @@ $query2 = mysqli_query($con, "SELECT  * FROM comuna");
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col-xs-5">ID</th>
                         <th scope="col-xs-5">NOMBRE SECTOR</th>
                         <th scope="col">REGION</th>
                         <th scope="col">PROVINCIA</th>
@@ -137,17 +138,20 @@ $query2 = mysqli_query($con, "SELECT  * FROM comuna");
                 <tbody>
                     <?php
                     
-                    $sql="SELECT SE.NOMBRE_SECTOR, rg.REGION_NOMBRE, rg.REGION_ID,pr.PROVINCIA_NOMBRE, cm.COMUNA_NOMBRE FROM sector SE INNER JOIN region rg INNER JOIN provincia pr INNER JOIN comuna cm WHERE SE.REGION_ID=rg.REGION_ID AND rg.REGION_ID=SE.REGION_ID and SE.PROVINCIA_ID=pr.PROVINCIA_ID and pr.PROVINCIA_ID=SE.PROVINCIA_ID AND cm.COMUNA_ID = SE.COMUNA_ID";
+                    $sql="SELECT SE.SECTOR_ID, SE.NOMBRE_SECTOR, rg.REGION_NOMBRE, rg.REGION_ID,pr.PROVINCIA_NOMBRE, cm.COMUNA_NOMBRE FROM sector SE INNER JOIN region rg INNER JOIN provincia pr INNER JOIN comuna cm WHERE SE.REGION_ID=rg.REGION_ID AND rg.REGION_ID=SE.REGION_ID and SE.PROVINCIA_ID=pr.PROVINCIA_ID and pr.PROVINCIA_ID=SE.PROVINCIA_ID AND cm.COMUNA_ID = SE.COMUNA_ID";
                     $result=mysqli_query($con,$sql);
                     
-                    while($mostrar=mysqli_fetch_array($result)){
+                    while($row=mysqli_fetch_array($result)){
                     ?>
                     <tr>
                         <th scope="row"></th>
-                        <td><?php echo $mostrar['NOMBRE_SECTOR']?></td>
-                        <td><?php echo $mostrar['REGION_ID']?></td>
-                        <td><?php echo $mostrar['PROVINCIA_NOMBRE']?></td>
-                        <td><?php echo $mostrar['COMUNA_NOMBRE']?></td>
+                        <td><?php echo $row['SECTOR_ID']?></td>
+                        <td><?php echo $row['NOMBRE_SECTOR']?></td>
+                        <td><?php echo $row['REGION_ID']?></td>
+                        <td><?php echo $row['PROVINCIA_NOMBRE']?></td>
+                        <td><?php echo $row['COMUNA_NOMBRE']?></td>
+                        <th><a href="modificar-sector.php?SECTOR_ID=<?php echo $row['SECTOR_ID']?>">MODIFICAR</a></th>
+                        <th><a href="eliminar-sector.php?ID=<?php echo $row['SECTOR_ID']?>">ELIMINAR</a></th>
                      
                         <!--boton para eliminar-->
                     </tr>
