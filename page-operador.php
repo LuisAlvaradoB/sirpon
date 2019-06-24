@@ -52,7 +52,7 @@ include'conexion.php';
                     <h1 class="dash-title">Bienvenido - Sistema Integrado de Busqueda para la Prevención Online</h1>
                     <!-- put your rows / columns here -->
                     <div class="spur-card-title"> Ficha de Delincuente </div>
-                                </div>
+                               
                                 <div class="card-body ">
                                     <form  method="POST" >
                                         
@@ -61,11 +61,10 @@ include'conexion.php';
 
                                                 <div class="form-group  col-xs-6" >
                                                      <label >RUT</label>
-                                                     <input type="text" class="form-control"  placeholder="Rut" name="rut">
+                                                     <input type="text" minlength="10" maxlength="10" oninput="checkRut(this)" required class="form-control"  placeholder="Rut" name="rut">
                                                 </div>
                                              
-                                             
-                                              
+                                            
                                                 
                                             
                                         </div><!-- div de class form-row de datos de delincuente como numero etc -->
@@ -118,7 +117,10 @@ if(isset($_POST['buscar'])  ){
             <td><?php echo $row["NOMBRE_TIPO"];?></td>
             <td><?php echo $row["ESTADO_DELITO"]; ?></td>
             <td><?php echo $row["DESCRIPCION_DELITO"]; ?></td>
-             <th><a href="antecedentes.php"><span class="text-danger">NUEVO</span></a></th>   <!--boton para eliminar-->
+            <th><a href="antecedentes-delincuente.php?RUT=<?php echo $row['RUT']?>">DETALLE</a></th>
+             <th><a href="antecedentes.php?RUT=<?php echo $row['RUT']?>"><span >NUEVO</span></a></th>   
+             <th><a href="modificar-datos-personales-delincuente.php?RUT=<?php echo $row['RUT']?>">MODIFICAR</a></th>
+
 		     </tr>
 
             <?php
@@ -128,39 +130,17 @@ if(isset($_POST['buscar'])  ){
 		echo '<script>window.location="page-operador.php"</script>';  
         
       }
-    }else{
-        $sql1  ="SELECT PER.RUT, PER.NOMBRE, DC.FECHA_DELITO, DC.HORA_DELITO, tp.NOMBRE_TIPO, DC.ESTADO_DELITO, DC.DESCRIPCION_DELITO FROM persona PER INNER JOIN delitos_cometido DC INNER JOIN tipo_de_delito tp WHERE PER.RUT=DC.RUT AND DC.RUT=PER.RUT and DC.RUT=PER.RUT AND PER.RUT=DC.RUT AND tp.TIPO_DELITO_ID=DC.TIPO_DELITO_ID AND DC.TIPO_DELITO_ID=tp.TIPO_DELITO_ID";
-        $result1= mysqli_query($con,$sql1);
-           if(mysqli_num_rows($result1) > 0){
-            while($row = mysqli_fetch_array($result1))
-           {
-               ?>
-               <!--tabla-->
-               <tr>
-            <td><?php echo $row["RUT"];?></td>     
-            <td><?php echo $row["NOMBRE"];?></td>
-            <td><?php echo $row["FECHA_DELITO"];?></td>
-            <td><?php echo $row["HORA_DELITO"];?></td>
-            <td><?php echo $row["NOMBRE_TIPO"];?></td>
-            <td><?php echo $row["ESTADO_DELITO"]; ?></td>
-            <td><?php echo $row["DESCRIPCION_DELITO"]; ?></td><!--llenar los datos-->
-            <th><a href="antecedentes-delincuente.php"><span class="text-danger">detalle</span></a></th>   <!--boton para eliminar-->
-               <th><a href="antecedentes.php"><span class="text-danger">NUEVO</span></a></th>   <!--boton para eliminar-->
-                </tr>
-               <?php
-        
-         }
-       }
     }
-           ?>
+    ?>
        </table>    
     
 	                          
     
 
 
-</body>
+
                                 </div>
+
                 </div>
             </main>
  
@@ -168,4 +148,53 @@ if(isset($_POST['buscar'])  ){
         </div>
     </div>
 
+    <script>
+        function checkRut(Rut) {
+    // Despejar Puntos
+    var valor = Rut.value.replace('.','');
+    // Despejar Guión
+    valor = valor.replace('-','');
+    
+    // Aislar Cuerpo y Dígito Verificador
+    cuerpo = valor.slice(0,-1);
+    dv = valor.slice(-1).toUpperCase();
+    
+    // Formatear RUN
+    Rut.value = cuerpo + '-'+ dv
+    
+    // Si no cumple con el mínimo ej. (n.nnn.nnn)
+    if(cuerpo.length < 7) { Rut.setCustomValidity("Rut Incompleto"); return false;}
+    
+    // Calcular Dígito Verificador
+    suma = 0;
+    multiplo = 2;
+    
+    // Para cada dígito del Cuerpo
+    for(i=1;i<=cuerpo.length;i++) {
+    
+        // Obtener su Producto con el Múltiplo Correspondiente
+        index = multiplo * valor.charAt(cuerpo.length - i);
+        
+        // Sumar al Contador General
+        suma = suma + index;
+        
+        // Consolidar Múltiplo dentro del rango [2,7]
+        if(multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
+  
+    }
+    
+    // Calcular Dígito Verificador en base al Módulo 11
+    dvEsperado = 11 - (suma % 11);
+    
+    // Casos Especiales (0 y K)
+    dv = (dv == 'K')?10:dv;
+    dv = (dv == 0)?11:dv;
+    
+    // Validar que el Cuerpo coincide con su Dígito Verificador
+    if(dvEsperado != dv) { Rut.setCustomValidity("Rut Inválido"); return false; }
+    
+    // Si todo sale bien, eliminar errores (decretar que es válido)
+    Rut.setCustomValidity('');
+}
+    </script>
     <?php include 'footer.php'; ?>

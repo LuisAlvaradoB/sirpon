@@ -57,7 +57,8 @@ $query2 = mysqli_query($con, "SELECT*  FROM comuna");
                                         <div class="form-group">
                                         <div class="form-group">
                                             <label >Rut</label>
-                                            <input type="text" class="form-control"  placeholder="ejem 18.700.672-0" name="Rut">
+                                            <input minlength="10" maxlength="10" type="text" class="form-control" placeholder="ejem 18.700.672-0" name="Rut" required
+                                                        oninput="checkRut(this)" required>
                                         </div>
                                             <label >NOMBRES COMPELTO</label>
                                             <input type="text" class="form-control"  placeholder="Nombre" name="nombre">
@@ -121,7 +122,7 @@ $query2 = mysqli_query($con, "SELECT*  FROM comuna");
                                             <div class="form-group col-md-4">
                                              
                                             <label>REGION</label>
-                                                    <select class="form-control" name="region">
+                                                    <select class="form-control" id="region" name="region">
                                                     
                                                     <?php
                                                         while ($datos = mysqli_fetch_array($query)) {
@@ -141,7 +142,7 @@ $query2 = mysqli_query($con, "SELECT*  FROM comuna");
                                            
                                           <div class="form-group col-md-4">
                                           <label>PROVINCIA</label>
-                                <select class="form-control" name="provincia">
+                                <select class="form-control" id="provincia" name="provincia">
                                                                  <?php
                                     while ($datos = mysqli_fetch_array($query1)) {
 
@@ -155,7 +156,7 @@ $query2 = mysqli_query($con, "SELECT*  FROM comuna");
                                             </div>   
                                         <div class="form-group col-md-4">
                                 <label>COMUNA</label>
-                                <select class="form-control" name="comuna">
+                                <select class="form-control" id="comuna" name="comuna">
                     
                                    <?php
                                     while ($datos = mysqli_fetch_array($query2)) {
@@ -186,4 +187,94 @@ $query2 = mysqli_query($con, "SELECT*  FROM comuna");
          
         </div>
     </div>
+
+    <script>
+        function checkRut(Rut) {
+    // Despejar Puntos
+    var valor = Rut.value.replace('.','');
+    // Despejar Guión
+    valor = valor.replace('-','');
+    
+    // Aislar Cuerpo y Dígito Verificador
+    cuerpo = valor.slice(0,-1);
+    dv = valor.slice(-1).toUpperCase();
+    
+    // Formatear RUN
+    Rut.value = cuerpo + '-'+ dv
+    
+    // Si no cumple con el mínimo ej. (n.nnn.nnn)
+    if(cuerpo.length < 7) { Rut.setCustomValidity("Rut Incompleto"); return false;}
+    
+    // Calcular Dígito Verificador
+    suma = 0;
+    multiplo = 2;
+    
+    // Para cada dígito del Cuerpo
+    for(i=1;i<=cuerpo.length;i++) {
+    
+        // Obtener su Producto con el Múltiplo Correspondiente
+        index = multiplo * valor.charAt(cuerpo.length - i);
+        
+        // Sumar al Contador General
+        suma = suma + index;
+        
+        // Consolidar Múltiplo dentro del rango [2,7]
+        if(multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
+  
+    }
+    
+    // Calcular Dígito Verificador en base al Módulo 11
+    dvEsperado = 11 - (suma % 11);
+    
+    // Casos Especiales (0 y K)
+    dv = (dv == 'K')?10:dv;
+    dv = (dv == 0)?11:dv;
+    
+    // Validar que el Cuerpo coincide con su Dígito Verificador
+    if(dvEsperado != dv) { Rut.setCustomValidity("Rut Inválido"); return false; }
+    
+    // Si todo sale bien, eliminar errores (decretar que es válido)
+    Rut.setCustomValidity('');
+}
+    </script>
+    <script type="text/javascript">
+$(document).ready(function() {
+    $('#region').on('change', function() {
+        var regionID = $('#region').val();
+        if (regionID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'regionID=' + regionID,
+                success: function(html) {
+                    $('#provincia').html(html);
+                    $('#comuna').html(
+                        '<option value="">Selecciona Provincia primero</option>');
+                }
+            });
+        } else {
+            $('#provincia').html('<option value="">2</option>');
+            $('#comuna').html('<option value="">3</option>');
+        }
+    });
+
+    $('#provincia').on('change', function() {
+        var provinciaID = $('#provincia').val();
+        if (provinciaID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'provinciaID=' + provinciaID,
+                success: function(html) {
+                    $('#comuna').html(html);
+                }
+            });
+        } else {
+            $('#comuna').html('<option value="">Selecciona provincia</option>');
+        }
+    });
+});
+</script>
+
     <?php include 'footer.php'; ?>
+    

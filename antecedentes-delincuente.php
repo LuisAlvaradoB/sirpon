@@ -66,9 +66,9 @@ include'conexion.php';
   </thead>
     <?php 
 
-
+$Rut=$_REQUEST['RUT'];
    
-    $sql = "SELECT PER.RUT, PER.NOMBRE, PER.APELLIDO_PA, PER.DOMICILIO_PARTICULAR,  del.APODO_DELINCUENTE, del.ULTIMO_LUGAR_VISTO, del.ESTADO_PENAL FROM persona PER INNER JOIN delicuente del WHERE PER.RUT=del.RUT";         // consulta para ver todas la ventas 
+    $sql = "SELECT PER.RUT, PER.NOMBRE, PER.APELLIDO_PA, PER.DOMICILIO_PARTICULAR,  del.APODO_DELINCUENTE, del.ULTIMO_LUGAR_VISTO, del.ESTADO_PENAL FROM persona PER INNER JOIN delicuente del WHERE PER.RUT=$Rut and del.RUT=$Rut" ;         // consulta para ver todas la ventas 
      $result= mysqli_query($con,$sql);
 		if(mysqli_num_rows($result) > 0){
 	     while($row = mysqli_fetch_array($result))

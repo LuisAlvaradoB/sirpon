@@ -12,3 +12,4 @@
 		 
 	mysqli_set_charset($con,"UTF8");
 	mysqli_select_db($con,$BBDD_BBDD) or die ("No existe Base de Datos...");
+	?>
