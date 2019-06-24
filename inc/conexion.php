@@ -9,11 +9,15 @@
 	$BBDD_pass="";
     $BBDD_BBDD="sirpon";
 
-
-     $con=mysqli_connect($BBDD_host,$BBDD_user,$BBDD_pass);
-     if(mysqli_connect_errno()){
-		 echo "Error con la conexión...";
-	 }
+	// Crear Conexion
+	 $con=mysqli_connect($BBDD_host,$BBDD_user,$BBDD_pass);
+	//  Check Conexion
+	if (!$con) {
+		die("Conexión Fallida: " . mysqli_connect_error());
+	}else{
+		echo 'Conexión Lista';
+	}
+	
 		 
 	mysqli_set_charset($con,"UTF8");
 	mysqli_select_db($con,$BBDD_BBDD) or die ("No existe Base de Datos...");
