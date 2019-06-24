@@ -346,21 +346,21 @@
                                         <div class="spur-card-title"> Instituciones </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form>
+                                        <form method="POST" action="registro-bd.php">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="">Nombre de la Institución</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        id="nombre_institución" placeholder="Seguridad Ciudadana"
+                                                    <input type="text" pattern="^[a-zA-Z]+( [a-zA-Z]+)*$" class="form-control"
+                                                        name="nombre_institucion" placeholder="Seguridad Ciudadana"
                                                         required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Persona a Cargo</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        id="persona_acargo" placeholder="" required>
+                                                    <input type="text" pattern="^[a-zA-Z]+( [a-zA-Z]+)*$" class="form-control"
+                                                        name="persona_acargo" placeholder="" required>
                                                 </div>
                                             </div>
-                                            <button type="submit"
+                                            <button type="submit" name="submit3"
                                                 class="btn btn-primary btn-block my-4">Registrar</button>
                                         </form>
                                     </div>

@@ -58,14 +58,32 @@ if(isset($_POST['submit2'])){
    $sql1="INSERT INTO usuario (RUT,NOMBRE_USUARIO,HASH_PASSWORD,FECHA_CREACION_USUARIO,PREVILEGIOS,INSTITUCION)values
    ('$rutUsuario','$nombre_usuario','$hash_password','$fecha_creacion_usuario','$privilegios','$institucion')";
 	   
-	$result2=mysqli_query($con,$sql1);
+	$result1=mysqli_query($con,$sql1);
 	   
-	if ($result2) {
+	if ($result1) {
 		echo '<script>alert("usuario registrado con exito")</script>';
 		echo '<script>window.location="admin-registros.php"</script>';
 	} else {
 	   echo "Error: " . $sql1 . "<br>" . mysqli_error($con);
 	}
 }
+
+if(isset($_POST['submit3'])){
+	// Formulario Usuario
+   $nombreInstitucion=$_POST["nombre_institucion"];
+   $personaACargo=$_POST["persona_acargo"];
+
+   $sql2="INSERT INTO institución (NOMBRE_INSTITUCION,USUARIO_JEFE)values('$nombreInstitucion','$personaACargo')";
+	   
+	$result2=mysqli_query($con,$sql2);
+	   
+	if ($result2) {
+		echo '<script>alert("usuario registrado con exito")</script>';
+		echo '<script>window.location="admin-registros.php"</script>';
+	} else {
+	   echo "Error: " . $sql2 . "<br>" . mysqli_error($con);
+	}
+}
+    
     
    
