@@ -1,12 +1,8 @@
 <?php include 'head.php';
 include 'conexion.php';
-
 $query = mysqli_query($con, "SELECT * FROM region ");
 $query1 = mysqli_query($con, "SELECT * FROM provincia");
 $query2= mysqli_query($con, "SELECT  * FROM comuna");
-
-
-
 ?>
 
 
@@ -68,55 +64,54 @@ $query2= mysqli_query($con, "SELECT  * FROM comuna");
                 <div class="card-body ">
                 <?php
                     $Rut=$_REQUEST['RUT'];
-
                     $sql="SELECT * FROM persona WHERE RUT='$Rut'";
                     $result=mysqli_query($con,$sql);
                     
                     $mostrar=$result ->fetch_assoc();
                     ?>
-                    <form action="mod-proceso.php?RUT=<?php echo $mostrar['RUT']?>" method="POST">
+                    <form action="mod-proceso.php" method="POST">
                    
                         <div class="form-group">
                             <div class="form-group">
                                 <label>RUT</label>
-                                <input type="text" class="form-control" placeholder="ejem 18.700.672-0" name="Rut" value="<?php echo $mostrar ['RUT'];?>">
+                                <input type="text" class="form-control" REQUIRED placeholder="ejem 18.700.672-0" name="Rut" value="<?php echo $mostrar['RUT'];?>">
                             </div>
 
-                            <label>NOMBRES COMPPLETO</label>
-                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" value="<?php echo $mostrar ['NOMBRE'];?>">
+                            <label>NOMBRES COMPLETO</label>
+                            <input type="text" class="form-control" REQUIRED placeholder="Nombre" name="nombre" value="<?php echo $mostrar['NOMBRE'];?>">
                         </div>
                         <div class="form-group">
                             <label>APELLIDO PATERNO</label>
-                            <input type="text" class="form-control" placeholder="Apellido Paterno" name="ApellidoP" value="<?php echo $mostrar ['APELLIDO_PA'];?>">
+                            <input type="text" class="form-control"REQUIRED  placeholder="Apellido Paterno" name="ApellidoP" value="<?php echo $mostrar['APELLIDO_PA'];?>">
                         </div>
                         <div class="form-group">
                             <label>APELLIDO MATERNO</label>
-                            <input type="text" class="form-control" placeholder="Apellido Materno" name="ApellidoM" value="<?php echo $mostrar ['APELLIDO_MA'];?>">
+                            <input type="text" class="form-control"  REQUIRED placeholder="Apellido Materno" name="ApellidoM" value="<?php echo $mostrar['APELLIDO_MA'];?>">
                         </div>
 
 
                         <div class="form-group">
                             <label>DIRECCIÓN DE DOMICILIO PARTICULAR</label>
-                            <input type="text" class="form-control" placeholder="DIRECCIÓN DE DOMICILIO" name="Direccion_Domicilio" value="<?php echo $mostrar ['DOMICILIO_PARTICULAR'];?>">
+                            <input type="text" class="form-control" REQUIRED placeholder="DIRECCIÓN DE DOMICILIO" name="Direccion_Domicilio" value="<?php echo $mostrar['DOMICILIO_PARTICULAR'];?>">
                         </div>
                         <div class="form-row">
 
                             <div class="form-group col-md-3">
                                 <label>FECHA DE NACIMIENTO</label>
-                                <input type="date" class="form-control" placeholder="Nombre" name="fechaNacimiento" value="<?php echo $mostrar ['FECHA_NACIMIENTO'];?>">
+                                <input type="date" class="form-control" REQUIRED placeholder="Nombre" name="fechaNacimiento" value="<?php echo $mostrar['FECHA_NACIMIENTO'];?>">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label>TELEFONO CELULAR</label>
-                                <input type="text" class="form-control" placeholder="+569..." name="num_telefono_celular" value="<?php echo $mostrar ['TELEFONO'];?>">
+                                <input type="text" class="form-control" REQUIRED placeholder="+569..." name="num_telefono_celular" value="<?php echo $mostrar['TELEFONO'];?>">
                             </div>
                             <div class="form-group col-md-3">
                                 <label>TELEFONO RED FIJA</label>
-                                <input type="text" class="form-control" placeholder="ejem,02 42 46..." name="Telefono_Fijo" value="<?php echo $mostrar ['TELEFONO_RED_FIJA'];?>">
+                                <input type="text" class="form-control" REQUIRED placeholder="ejem,02 42 46..." name="Telefono_Fijo" value="<?php echo $mostrar['TELEFONO_RED_FIJA'];?>">
                             </div>
                             <div class="form-group col-md-3">
                                 <label>CORREO ELECTRONICO</label>
-                                <input type="email" class="form-control" placeholder="no olvidar @" name="correo" value="<?php echo $mostrar ['CORREO_ELECTRONICO'];?>">
+                                <input type="email" class="form-control" REQUIRED placeholder="no olvidar @" name="correo" value="<?php echo $mostrar['CORREO_ELECTRONICO'];?>">
                             </div>
                         </div>
 
@@ -128,9 +123,8 @@ $query2= mysqli_query($con, "SELECT  * FROM comuna");
                                 <option>seleccione</option>
                                     <?php
                                     while ($datos = mysqli_fetch_array($query)) {
-
                                         ?>
-                                        <option  value="<?php echo $datos['REGION_NOMBRE'] ?>" selected=""><?php echo $datos['REGION_NOMBRE'] ?> </option>
+                                        <option  value="<?php echo $datos['REGION_ID'] ?>" selected=""><?php echo $datos['REGION_NOMBRE']; ?> </option>
                                     <?php
                                 }
                                 ?>
@@ -145,10 +139,9 @@ $query2= mysqli_query($con, "SELECT  * FROM comuna");
                                 <option>seleccione</option>
                                 <?php
                                     while ($datos1 = mysqli_fetch_array($query1)) {
-
                                         ?>
                                         
-                                        <option value="<?php echo $datos1['PROVINCIA_NOMBRE'] ?>" selected="1"><?php echo $datos1['PROVINCIA_NOMBRE'] ?> </option>
+                                        <option value="<?php echo $datos1['PROVINCIA_ID'] ?>" selected="1"><?php echo $datos1['PROVINCIA_NOMBRE']; ?> </option>
                                     <?php
                                 }
                                 ?>
@@ -161,10 +154,9 @@ $query2= mysqli_query($con, "SELECT  * FROM comuna");
                                 <option>seleccione</option>
                                 <?php
                                     while ($datos2 = mysqli_fetch_array($query2)) {
-
                                         ?>
                                         
-                                        <option value="<?php echo $datos2['COMUNA_NOMBRE'] ?>" selected="1"><?php echo $datos2['COMUNA_NOMBRE'] ?> </option>
+                                        <option value="<?php echo $datos2['COMUNA_ID'] ?>" selected="1"><?php echo $datos2['COMUNA_NOMBRE']; ?> </option>
                                     <?php
                                 }
                                 ?>
@@ -172,6 +164,6 @@ $query2= mysqli_query($con, "SELECT  * FROM comuna");
                                 </select>
                             </div>
                         </div>
-                        <button style="margin-right:20px" type="submit" class="btn btn-primary" name="enviar1">REGISTRA DATOS</button>
+                        <button style="margin-right:20px" type="submit" class="btn btn-primary" name="modificar">REGISTRA DATOS</button>
 
                         <?php include 'footer.php'; ?>

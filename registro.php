@@ -253,7 +253,7 @@ $query3= mysqli_query($con, "SELECT  * FROM persona");
                         <th><?php echo $mostrar['PROVINCIA_NOMBRE']?></th>
                         <th><?php echo $mostrar['COMUNA_NOMBRE']?></th>
                         <th><a href="modificar-ope.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a></th>
-                        <th><a href="eliminar-ope.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a></th>
+                        <th><a href="eliminar-operador.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a></th>
                         <!--boton para eliminar-->
                     </tr>
                     <?php

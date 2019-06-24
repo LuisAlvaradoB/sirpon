@@ -129,7 +129,7 @@ $query2 = mysqli_query($con, "SELECT  * FROM comuna");
                         <th scope="col-xs-5">NOMBRE SECTOR</th>
                         <th scope="col">REGION</th>
                         <th scope="col">PROVINCIA</th>
-                        <th scope="col">COMUNA PATERNO</th>
+                        <th scope="col">COMUNA</th>
 
 
                     </tr>
