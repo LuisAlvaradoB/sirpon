@@ -98,7 +98,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                                 <!-- <a class="dropdown-item" href="#!">Profile</a> -->
-                                <a class="dropdown-item" href="login.php">Cerrar Sesión</a>
+                                <a class="dropdown-item" href="index.php">Cerrar Sesión</a>
                             </div>
                         </div>
                     </div>
@@ -133,15 +133,16 @@
                                         <div class="spur-card-title"> Datos personales </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form class="">
+                                        <form id="form-datosPersonales">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="Rut">Rut</label>
                                                     <input type="text" minlength="10" maxlength="10"
-                                                        class="form-control" id="Rut" placeholder="18545175-k" required oninput="checkRut(this)" required>
-                                                        <script src="../../js/validar-rut.js"></script>
+                                                        class="form-control" id="Rut" placeholder="18545175-k" required
+                                                        oninput="checkRut(this)" required>
+                                                    <script src="../../js/validar-rut.js"></script>
                                                 </div>
-                                                
+
                                                 <!-- <div class="form-group col-md-6">
                                                     <label for="inputPassword4">Fecha de Nacimiento</label>
                                                     <input type="fecha_nacimiento" class="form-control"
@@ -245,7 +246,7 @@
                                             </div> -->
 
                                             <!-- <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button> -->
-                                        </form>
+                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -261,7 +262,7 @@
                                         <div class="spur-card-title"> Usuarios </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form>
+                                        <!-- <form id="form-Usuarios"> -->
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="">Nombre de Usuario</label>
@@ -274,9 +275,10 @@
                                                         placeholder="Contraseña">
                                                     <div class="form-group">
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" onclick="mostrarContraseña()" class="custom-control-input"
-                                                                id="mostrar_contraseña">
-                                                            <label class="custom-control-label" for="mostrar_contraseña">Mostrar Contraseña</label>
+                                                            <input type="checkbox" onclick="mostrarContraseña()"
+                                                                class="custom-control-input" id="mostrar_contraseña">
+                                                            <label class="custom-control-label"
+                                                                for="mostrar_contraseña">Mostrar Contraseña</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -322,9 +324,12 @@
                                                         custom checkbox</label>
                                                 </div>
                                             </div> -->
-                                            <button type="submit"
+                                            <button type="submit" id="sub"
                                                 class="btn btn-primary btn-block my-4">Registrar</button>
                                         </form>
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -341,13 +346,13 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="">Nombre de la Institución</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" id="nombre_institución"
-                                                        placeholder="Seguridad Ciudadana">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="nombre_institución" placeholder="Seguridad Ciudadana">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Persona a Cargo</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" id="persona_acargo"
-                                                        placeholder="">
+                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
+                                                        id="persona_acargo" placeholder="">
                                                 </div>
                                             </div>
                                             <button type="submit"
@@ -415,13 +420,36 @@ $(document).ready(function() {
 <!-- --------------------------------------------------------------------------- -->
 <!-- Funcion para mostrar la contraseña -->
 <script>
-    function mostrarContraseña() {
-  var x = document.getElementById("contraseña");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-} 
+function mostrarContraseña() {
+    var x = document.getElementById("contraseña");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
 </script>
 <!-- ----------------------------------- -->
+
+<!-- Funcion para guardar -->
+
+<script>
+$("#sub").click(function() {
+    $("form").each(function() {
+        var fd = new FormData($(this)[0]);
+        $.ajax({
+            type: "POST",
+            url: "registro-bd.php",
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function(data, status) {
+                //this will execute when form is submited without errors
+            },
+            error: function(data, status) {
+                //this will execute when get any error
+            },
+        });
+    });
+});
+</script>

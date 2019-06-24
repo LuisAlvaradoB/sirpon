@@ -96,7 +96,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                                 <!-- <a class="dropdown-item" href="#!">Profile</a> -->
-                                <a class="dropdown-item" href="login.php">Cerrar Sesión</a>
+                                <a class="dropdown-item" href="index.php">Cerrar Sesión</a>
                             </div>
                         </div>
                     </div>
@@ -269,7 +269,7 @@
                 </main>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" type="application/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" type="application/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             type="application/javascript"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
