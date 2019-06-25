@@ -172,7 +172,7 @@
                                         <td><?php echo $mostrar['COMUNA_NOMBRE']?></td>
                                         <th>
                                             <a
-                                                href="admin-modificaciones.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
+                                                href="admin-mod-datosP.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
                                         </th>
                                         <th>
                                             <a
@@ -220,7 +220,7 @@
                                             <td><?php echo $mostrar['PREVILEGIOS']?></td>
                                             <td><?php echo $mostrar['INSTITUCION']?></td>
                                             <th>
-                                                <a href="admin-modificaciones.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
+                                                <a href="form-mod/admin-mod-usuario.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
                                             </th>
                                             <th>
                                             <a href="eliminar-operador.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a>
@@ -264,7 +264,7 @@
                                                 <a href="admin-modificaciones.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
                                             </th>
                                             <th>
-                                            <a href="eliminar-operador.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a>
+                                                <a href="eliminar-operador.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a>
                                             </th>
                                              <!--boton para eliminar-->
                                         </tr>
@@ -331,15 +331,3 @@ $(document).ready(function() {
 });
 </script>
 <!-- --------------------------------------------------------------------------- -->
-<!-- Funcion para mostrar la contraseña -->
-<script>
-function mostrarContraseña() {
-    var x = document.getElementById("contraseña");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {
-        x.type = "password";
-    }
-}
-</script>
-<!-- ----------------------------------- -->

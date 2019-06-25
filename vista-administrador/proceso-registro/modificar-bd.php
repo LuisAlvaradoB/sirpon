@@ -57,7 +57,7 @@ if(isset($_POST['submit2'])){
 
 
    $sql1="UPDATE usuario SET RUT='$rutUsuario',NOMBRE_USUARIO='$nombre_usuario',HASH_PASSWORD='$hash_password',
-   FECHA_CREACION_USUARIO='$fecha_creacion_usuario',PREVILEGIOS='$privilegios',INSTITUCION='$institucion' WHERE RUT='$Rut'";
+   FECHA_CREACION_USUARIO='$fecha_creacion_usuario',PREVILEGIOS='$privilegios',INSTITUCION='$institucion' WHERE RUT='$rutUsuario'";
 	   
 	$result1=mysqli_query($con,$sql1);
 	   

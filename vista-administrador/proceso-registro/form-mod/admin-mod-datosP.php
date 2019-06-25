@@ -1,5 +1,5 @@
 <?php 
-    include'../../inc/conexion.php';
+    include'../../../inc/conexion.php';
     $query = mysqli_query($con, "SELECT * FROM region");
     $query1 = mysqli_query($con, "SELECT * FROM institución");
 ?>
@@ -12,12 +12,12 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" type="text/css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700"
             type="text/css">
-        <link rel="stylesheet" <link rel="stylesheet" href="../../css/spur.css" type="text/css">
-        <link rel="stylesheet" href="../../css/style.css" type="text/css">
+        <link rel="stylesheet" <link rel="stylesheet" href="../../../css/spur.css" type="text/css">
+        <link rel="stylesheet" href="../../../css/style.css" type="text/css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"
             type="application/javascript"></script>
-        <script src="../../js/chart-js-config.js" type="application/javascript"></script>
+        <script src="../../../js/chart-js-config.js" type="application/javascript"></script>
         <title>SIRPON</title>
     </head>
 
@@ -33,15 +33,15 @@
                 </header>
                 <!-- Sidebar de Navegacion -->
                 <nav class="dash-nav-list">
-                    <a href="../../page-administrador.php" class="dash-nav-item">
+                    <a href="../../../page-administrador.php" class="dash-nav-item">
                         <i class="fas fa-home"></i> Inicio </a>
                     <div class="dash-nav-dropdown show">
                         <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                             <i class="far fa-edit"></i>Registros</a>
                         <div class="dash-nav-dropdown-menu">
-                            <a href="admin-registros.php" class="dash-nav-dropdown-item">Registrar</a>
+                            <a href="../admin-registros.php" class="dash-nav-dropdown-item">Registrar</a>
                             <a href="#" class="dash-nav-dropdown-item">Modificar</a>
-                            <a href="admin-eliminar.php" class="dash-nav-dropdown-item">Eliminar</a>
+                            <a href="../admin-eliminar.php" class="dash-nav-dropdown-item">Eliminar</a>
                         </div>
                     </div>
 
@@ -49,7 +49,7 @@
                         <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
                             <i class="fas fa-database"></i>Mantenimiento</a>
                         <div class="dash-nav-dropdown-menu">
-                            <a href="../proceso-mantenimiento/admin-mantenimiento.php"
+                            <a href="../../proceso-mantenimiento/admin-mantenimiento.php"
                                 class="dash-nav-dropdown-item">Base de datos</a>
                         </div>
                     </div>
@@ -131,14 +131,14 @@
                                         <div class="spur-card-title"> Datos personales </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form id="form-datosPersonales" method="POST" action="modificar-bd.php">
+                                        <form id="form-datosPersonales" method="POST" action="../modificar-bd.php">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="Rut">Rut</label>
                                                     <input type="text" minlength="10" maxlength="10"
                                                         class="form-control" name="Rut" id="Rut"
                                                         placeholder="18545175-k" oninput="checkRut(this)" value="<?php echo $datosPersona['RUT'];?>" required>
-                                                    <script src="../../js/validar-rut.js"></script>
+                                                    <script src="../../../js/validar-rut.js"></script>
                                                 </div>
 
                                                 <!-- <div class="form-group col-md-6">
@@ -234,7 +234,7 @@
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-block my-4"
-                                                name="submit">Registrar</button>
+                                                name="submit">Modificar</button>
                                         </form>
                                     </div>
                                 </div>
@@ -251,8 +251,8 @@
             type="application/javascript"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             type="application/javascript"></script>
-        <script src="../../js/spur.js" type="application/javascript"></script>
-        <script src="../../js/reloj.js" type="application/javascript"></script>
+        <script src="../../../js/spur.js" type="application/javascript"></script>
+        <script src="../../../js/reloj.js" type="application/javascript"></script>
 
     </body>
 
@@ -298,14 +298,3 @@ $(document).ready(function() {
 </script>
 <!-- --------------------------------------------------------------------------- -->
 <!-- Funcion para mostrar la contraseña -->
-<script>
-function mostrarContraseña() {
-    var x = document.getElementById("contraseña");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {
-        x.type = "password";
-    }
-}
-</script>
-<!-- ----------------------------------- -->
