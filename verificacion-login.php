@@ -1,6 +1,6 @@
 <?php 
     
-    require_once("conexion.php");
+    include_once("inc/conexion.php");
         // $value = $_POST['value'] ?? '';
         // $email = $_POST['email'];
         // $password= $_POST['password'];
@@ -14,48 +14,52 @@
         //     echo "nose se pudo";
         // }
 
-        if(isset($_POST['iniciar_sesion'])){          
-            if($_POST['username']!="" && $_POST['password']!="" ){  //comprobar si los campos no estan vacios
-            $user2=$_POST['username'];     //guardar los datos
-            $pass2=$_POST['password'];
+        if(isset($_POST['submit'])){          
+            if($_POST['nickname']!="" && $_POST['password']!="" ){
+            $institucionId = $_POST['combobox-institucion'];  //comprobar si los campos no estan vacios
+            $nombreUsuario=$_POST['nickname'];     //guardar los datos
+            $passwordUsuario=$_POST['password'];
             
-            $sql3="Select * from usuarios where usuario='$user2' and clave='$pass2'";  /// hacer la consulta si existe el usuario
-            $resul4=mysqli_query($con,$sql3);
-            $contar4=mysqli_num_rows($resul4);
-                
-                if($contar4>=1){
+            $sql = "SELECT HASH_PASSWORD FROM usuario WHERE NOMBRE_USUARIO='$nombreUsuario'";
+            $result=mysqli_query($con,$sql);
+            $Arrayhash = mysqli_fetch_assoc($result);
+            // echo print_r($hash);
+            $hash = implode($Arrayhash);
+            
+                if (password_verify ($passwordUsuario ,$hash )) {
+                    $sql1="SELECT * FROM usuario WHERE NOMBRE_USUARIO='$nombreUsuario' AND HASH_PASSWORD='$hash' AND INSTITUCION='$institucionId'";  /// hacer la consulta si existe el usuario
+                    $result1=mysqli_query($con,$sql1);
+                    $contar=mysqli_num_rows($result1);
                     
-                    $sql4="select privilegios from usuarios where usuario='$user2'";   // obtener el privilegio
-                        $result4=mysqli_query($con,$sql4);
-                        $pre;
-                while($row = mysqli_fetch_array($result4)){
-                    $pre = $row[0];	
-                }
-                $_SESSION['iniciar_sesion']=$user2;
-                    ///////////////////si el usuario es admin 
-                    if($pre==1){
-                        header("location:menu.php");
-                    }else{
-                        //////////////////si no solo puede entrar a comprar
-                        header("location:productos.php");
+                    if($contar >=1){
+                        
+                        $sql2="SELECT PREVILEGIOS FROM usuario WHERE NOMBRE_USUARIO='$nombreUsuario'";   // obtener el privilegio
+                            $result2=mysqli_query($con,$sql2);
+                            $pre;
+                    while($row = mysqli_fetch_array($result2)){
+                        $pre = $row[0];	
                     }
-                    
-                    
-                    
-                
-                }else{
-                    
+                        ///////////////////si el usuario es admin 
+
+                        if ($pre === "Administrador") {
+                            header("location:page-administrador.php");
+                        } elseif ($pre === "Jefe de Zona") {
+                            header("location:page-jefezona.php");
+                        } elseif ($pre === "Operador"){
+                            header("location:page-operador.php");
+                        }
+
+                    }else{
+                        // echo $hash;
+                        echo "Error: " . $sql1 . "<br>" . mysqli_error($con);
+                        
+                    }
+
                 }
-            
             }else{
             echo "Faltan datos";
         
         
             }
         }          
-        
-
-
-        
-
 ?>

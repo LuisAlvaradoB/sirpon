@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="combobox-institucion">Selecciona Institución</label>
-                                <select class="form-control" id="combobox-institucion">
+                                <select class="form-control" name="combobox-institucion">
                                     <?php
                                         while ($datos = mysqli_fetch_array($query)) {
                                     ?>
@@ -39,17 +39,19 @@
                                     <option value="<?php echo $datos['INSTITUCION_ID']?>" selected="" >
                                         <?php echo $datos['NOMBRE_INSTITUCION'] ?> </option>
                                     <?php
-                                        }
+                                         }
                                     ?>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" aria-describedby="CorreoElectronico"
-                                placeholder="Ingrese Correo Electrónico" required>
+                            <label for="nickname">Nombre de Usuario</label>
+                            <input type="nickname" class="form-control" id="nickname" name="nickname" aria-describedby="CorreoElectronico"
+                                placeholder="Ingrese Nombre de Usuario" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password" placeholder="Ingresa Contraseña"
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa Contraseña"
                                 required>
                         </div>
                         <!-- <div class="form-group">
@@ -59,7 +61,7 @@
                             </div>
                         </div> -->
                         <div class="account-dialog-actions">
-                            <button type="submit" class="btn btn-primary">Ingresar</button>
+                            <button name="submit" type="submit" class="btn btn-primary">Ingresar</button>
                             <!-- <a class="account-dialog-link" href="signup.html">Create a new account</a> -->
                         </div>
                     </form>

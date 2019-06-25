@@ -180,6 +180,7 @@
                                                     <select class="form-control" name="privilegio">
                                                         <option ><?php echo $datosPersona['PREVILEGIOS'];?></option>
                                                         <!-- <option selected>Selecciona Privilegios</option> -->
+                                                        <option>Administrador</option>
                                                         <option>Jefe de Zona</option>
                                                         <option>Operador</option>
                                                     </select>

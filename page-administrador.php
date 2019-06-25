@@ -1,3 +1,6 @@
+<?php 
+    include'inc/conexion.php';
+?>
 <!doctype html>
 <html lang="es">
 
@@ -121,6 +124,11 @@
                             </div>
                             <hr>
                         <!-- put your rows / columns here -->
+                        <?php 
+                        $sql="SELECT * FROM usuario";  /// hacer la consulta si existe el usuario
+                        $result=mysqli_query($con,$sql);
+                        $cantidad=mysqli_num_rows($result);
+                        ?>
                         <div class="row dash-row">
                             <div class="col-xl-4">
                                 <div class="stats stats-primary">
@@ -130,7 +138,7 @@
                                             <i class="fas fa-user-friends"></i>
                                         </div>
                                         <div class="stats-data">
-                                            <div class="stats-number">7</div>
+                                            <div class="stats-number"><?php echo $cantidad;?></div>
                                             <!-- <div class="stats-change">
                                                 <span class="stats-percentage">+25%</span>
                                                 <span class="stats-timeframe">from last month</span>
@@ -139,6 +147,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php 
+                            $sql="SELECT * FROM institución";  /// hacer la consulta si existe el usuario
+                            $result=mysqli_query($con,$sql);
+                            $cantidad=mysqli_num_rows($result);
+                            ?>
                             <div class="col-xl-4">
                                 <div class="stats stats-success ">
                                     <h3 class="stats-title"> Cantidad de Instituciones </h3>
@@ -147,7 +160,7 @@
                                             <i class="fas fa-building"></i>
                                         </div>
                                         <div class="stats-data">
-                                            <div class="stats-number">4</div>
+                                            <div class="stats-number"><?php echo $cantidad;?></div>
                                             <!-- <div class="stats-change">
                                                 <span class="stats-percentage">+17.5%</span>
                                                 <span class="stats-timeframe">from last month</span>
@@ -156,6 +169,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $privilegios = "Jefe de Zona";
+                            $sql="SELECT * FROM usuario WHERE PREVILEGIOS='$privilegios'";  /// hacer la consulta si existe el usuario
+                            $result=mysqli_query($con,$sql);
+                            $cantidad=mysqli_num_rows($result);
+                            ?>
                             <div class="col-xl-4">
                                 <div class="stats stats-danger">
                                     <h3 class="stats-title"> Cantidad de Jefe de Zona </h3>
@@ -164,13 +183,13 @@
                                             <i class="fas fa-user"></i>
                                         </div>
                                         <div class="stats-data">
-                                            <div class="stats-number">2</div>
+                                            <div class="stats-number"><?php echo $cantidad;?></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-xl-6">
                                 <div class="card spur-card">
                                     <div class="card-header">
@@ -263,7 +282,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </main>
