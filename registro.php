@@ -76,16 +76,16 @@ $query4= mysqli_query($con, "SELECT  * FROM institución");
                                                         oninput="checkRut(this)" required>
                             </div>
 
-                            <label>NOMBRES COMPLETO</label>
-                            <input type="text" class="form-control"  maxlength="30" pattern="[a-zA-Z]+" placeholder="Nombre" name="nombre">
+                            <label>NOMBRES</label>
+                            <input type="text" class="form-control"  maxlength="30" onkeypress="return soloLetras(event)" onblur="limpia()" id="miInput" placeholder="Nombre" name="nombre">
                         </div>
                         <div class="form-group">
                             <label>APELLIDO PATERNO</label>
-                            <input type="text" class="form-control"  maxlength="30" pattern="[a-zA-Z]+" placeholder="Apellido Paterno" name="ApellidoP">
+                            <input type="text" class="form-control"  maxlength="30"onkeypress="return soloLetras(event)" onblur="limpia()" id="miInput" placeholder="Apellido Paterno" name="ApellidoP">
                         </div>
                         <div class="form-group">
                             <label>APELLIDO MATERNO</label>
-                            <input type="text" class="form-control"  maxlength="30" pattern="[a-zA-Z]+" placeholder="Apellido Materno" name="ApellidoM">
+                            <input type="text" class="form-control"  maxlength="30" onkeypress="return soloLetras(event)" onblur="limpia()" id="miInput" placeholder="Apellido Materno" name="ApellidoM">
                         </div>
 
 
@@ -188,26 +188,8 @@ $query4= mysqli_query($con, "SELECT  * FROM institución");
             <div class="container-fluid ">
 
                 <!-- put your rows / columns here -->
-                <div class="spur-card-title"> BUSCAR OPERADOR </div>
-            </div>
-            <div class="card-body ">
-                <form action="registro-ficha.php" method="POST">
+                <div class="spur-card-title"> REGISTROS DE OPERADORES </div>
 
-
-                    <div class="form-row">
-
-                        <div class="form-group col-xs-5 ">
-                            <label>RUT</label>
-                            <input type="text" class="form-control" placeholder="Rut" name="fechaNacimiento">
-                        </div>
-
-
-
-
-
-                    </div><!-- DIV QUE CONTENDRA UNA TABLA CON LOS DATOS DE OPERADOR -->
-                    <button type="submit" class="btn btn-primary" class="searchbox-input"name="buscar"> BUSCAR </button>
-            </div>
 
             </form>
             <br>
@@ -464,6 +446,35 @@ $(document).ready(function() {
 });
 </script>
 
-<!-- Funcion para mostrar la contraseña -->
+<script>
+
+function soloLetras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+    especiales = [8, 37, 39, 46];
+
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if(letras.indexOf(tecla) == -1 && !tecla_especial)
+        return false;
+}
+
+function limpia() {
+    var val = document.getElementById("miInput").value;
+    var tam = val.length;
+    for(i = 0; i < tam; i++) {
+        if(!isNaN(val[i]))
+            document.getElementById("miInput").value = '';
+    }
+}
+</script>
+
 
     <?php include 'footer.php'; ?>

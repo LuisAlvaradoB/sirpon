@@ -119,7 +119,7 @@ $query2= mysqli_query($con, "SELECT  * FROM comuna");
 
                             <div class="form-group col-md-4">
                                 <label>REGION</label>
-                                <select class="form-control" name="region">
+                                <select class="form-control" id="region" name="region">
                                 <option>seleccione</option>
                                     <?php
                                     while ($datos = mysqli_fetch_array($query)) {
@@ -135,7 +135,7 @@ $query2= mysqli_query($con, "SELECT  * FROM comuna");
 
                             <div class="form-group col-md-4">
                                 <label>PROVINCIA</label>
-                                <select class="form-control" name="provincia">
+                                <select class="form-control" id="provincia" name="provincia">
                                 <option>seleccione</option>
                                 <?php
                                     while ($datos1 = mysqli_fetch_array($query1)) {
@@ -150,7 +150,7 @@ $query2= mysqli_query($con, "SELECT  * FROM comuna");
 
                             <div class="form-group col-md-4">
                                 <label>COMUNA</label>
-                                <select class="form-control" name="comuna">
+                                <select class="form-control" id="region" name="comuna">
                                 <option>seleccione</option>
                                 <?php
                                     while ($datos2 = mysqli_fetch_array($query2)) {
@@ -166,4 +166,43 @@ $query2= mysqli_query($con, "SELECT  * FROM comuna");
                         </div>
                         <button style="margin-right:20px" type="submit" class="btn btn-primary" name="modificar">REGISTRA DATOS</button>
 
+
+                        <script type="text/javascript">
+$(document).ready(function() {
+    $('#region').on('change', function() {
+        var regionID = $('#region').val();
+        if (regionID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'regionID=' + regionID,
+                success: function(html) {
+                    $('#provincia').html(html);
+                    $('#comuna').html(
+                        '<option value="">Selecciona Provincia primero</option>');
+                }
+            });
+        } else {
+            $('#provincia').html('<option value="">2</option>');
+            $('#comuna').html('<option value="">3</option>');
+        }
+    });
+
+    $('#provincia').on('change', function() {
+        var provinciaID = $('#provincia').val();
+        if (provinciaID) {
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxDatos.php',
+                data: 'provinciaID=' + provinciaID,
+                success: function(html) {
+                    $('#comuna').html(html);
+                }
+            });
+        } else {
+            $('#comuna').html('<option value="">Selecciona provincia</option>');
+        }
+    });
+});
+</script>
                         <?php include 'footer.php'; ?>
