@@ -12,8 +12,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" type="text/css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700"
             type="text/css">
-        <link rel="stylesheet"
-        <link rel="stylesheet" href="../../css/spur.css" type="text/css">
+        <link rel="stylesheet" <link rel="stylesheet" href="../../css/spur.css" type="text/css">
         <link rel="stylesheet" href="../../css/style.css" type="text/css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"
@@ -74,15 +73,6 @@
                     <a href="#!" class="menu-toggle">
                         <i class="fas fa-bars"></i>
                     </a>
-                    <!-- Barra de Busqueda -->
-                    <!-- <a href="#!" class="searchbox-toggle">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <form class="searchbox" action="#!">
-                        <a href="#!" class="searchbox-toggle"> <i class="fas fa-arrow-left"></i> </a>
-                        <button type="submit" class="searchbox-submit"> <i class="fas fa-search"></i> </button>
-                        <input type="text" class="searchbox-input" placeholder="type to search">
-                    </form> -->
                     <!-- Iconos Derecha -->
                     <div class="tools">
                         <!-- <a href="https://github.com/HackerThemes/spur-template" target="_blank" class="tools-item">
@@ -104,6 +94,8 @@
                         </div>
                     </div>
                 </header>
+
+
                 <main class="dash-content">
                     <div class="container-fluid">
                         <div class="row">
@@ -118,32 +110,18 @@
                                 <h4 class="dash-title"> Modificar Usuarios / Instituciones</h4>
                             </div>
                             <div class="col">
-                            <h4 class="dash-title text-right" id="fechaActual+reloj"></h4>
+                                <h4 class="dash-title text-right" id="fechaActual+reloj"></h4>
                             </div>
                         </div>
-                        <hr>    
-                        <!-- put your rows / columns here -->
-                        <div class="row">
                         <hr>
-                            <!-- Barra de Busqueda -->
-                            <div class="col-md-9 my-4">
-                                <a href="#!" class="searchbox-toggle">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                                <form class="searchbox" action="#!">
-                                    <a href="#!" class="searchbox-toggle"> <i class="fas fa-arrow-left"></i> </a>
-                                    <button type="submit" class="searchbox-submit"> <i class="fas fa-search"></i>
-                                    </button>
-                                    <input type="text" class="searchbox-input" placeholder="Buscar">
-                                </form>
-                            </div>
-                            <div class="col-md-3 my-4">
-                            <button type="submit"
-                                                class="btn btn-primary btn-block btn-lg">Buscar</button>
-                            </div>
-                        </div>
+                        <!-- put your rows / columns here -->
+                        <?php
+                            $Rut=$_REQUEST['RUT'];
+                            $sql="SELECT * FROM persona WHERE RUT='$Rut'";
+                            $result=mysqli_query($con,$sql);
+                            $datosPersona=$result ->fetch_assoc();
+                        ?>
                         <div class="row">
-
                             <div class="col-xs-12 col-lg-12">
                                 <div class="card spur-card">
                                     <div class="card-header">
@@ -159,19 +137,19 @@
                                                     <label for="Rut">Rut</label>
                                                     <input type="text" minlength="10" maxlength="10"
                                                         class="form-control" name="Rut" id="Rut"
-                                                        placeholder="18545175-k" oninput="checkRut(this)" required>
+                                                        placeholder="18545175-k" oninput="checkRut(this)" value="<?php echo $datosPersona['RUT'];?>" required>
                                                     <script src="../../js/validar-rut.js"></script>
                                                 </div>
 
                                                 <!-- <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Fecha de Nacimiento</label>
-                                                    <input type="fecha_nacimiento" class="form-control"
-                                                        id="fecha_nacimiento" placeholder="Password">
-                                                </div> -->
+                                                        <label for="inputPassword4">Fecha de Nacimiento</label>
+                                                        <input type="fecha_nacimiento" class="form-control"
+                                                            id="fecha_nacimiento" placeholder="Password">
+                                                    </div> -->
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Nacimiento</label>
                                                     <input type="date" class="form-control" placeholder="Ingresa Fecha"
-                                                        name="fechaNacimiento" name="fechaNacimiento" required>
+                                                        name="fechaNacimiento" name="fechaNacimiento" value="<?php echo $datosPersona['FECHA_NACIMIENTO'];?>" required>
                                                 </div>
 
                                             </div>
@@ -179,24 +157,24 @@
                                                 <div class="form-group col-md-6">
                                                     <label for=" ">Nombre</label>
                                                     <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        name="nombre_persona" placeholder="Jorge" required>
+                                                        name="nombre_persona" placeholder="Jorge" value="<?php echo $datosPersona['NOMBRE'];?>" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Segundo Nombre</label>
                                                     <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        name="nombre_persona2" placeholder="Andrés" required>
+                                                        name="nombre_persona2" placeholder="Andrés" value="<?php echo $datosPersona['NOMBRE'];?>" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="">Apellido Paterno</label>
                                                     <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        name="apellidop_persona" placeholder="Gonzales" required>
+                                                        name="apellidop_persona" placeholder="Gonzales" value="<?php echo $datosPersona['APELLIDO_PA'];?>" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Apellido Materno</label>
                                                     <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        name="apellidom_persona" placeholder="Delgado" required>
+                                                        name="apellidom_persona" placeholder="Delgado" value="<?php echo $datosPersona['APELLIDO_MA'];?>" required>
                                                 </div>
                                             </div>
 
@@ -205,25 +183,25 @@
                                                     <label for="">Teléfono Fijo</label>
                                                     <input type="tel" minlength="9" pattern="[0-9]{9}"
                                                         class="form-control" name="telefono_fijo"
-                                                        placeholder="51 2 45 58 69" required>
+                                                        placeholder="51 2 45 58 69" value="<?php echo $datosPersona['TELEFONO_RED_FIJA'];?>" required>
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                     <label for="">Teléfono Móvil</label>
                                                     <input type="tel" minlength="9" pattern="[0-9]{9}"
                                                         class="form-control" name="telefono_movil"
-                                                        placeholder="9 6130 0066" required>
+                                                        placeholder="9 6130 0066" value="<?php echo $datosPersona['TELEFONO'];?>" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Correo Electrónico</label>
                                                     <input type="email" class="form-control" name="correo_electronico"
-                                                        placeholder="ejemplo@gmail.com" required>
+                                                        placeholder="ejemplo@gmail.com" value="<?php echo $datosPersona['CORREO_ELECTRONICO'];?>" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label for="">Dirección Particular</label>
                                                     <input type="text" class="form-control" name="direccion_particular"
-                                                        placeholder="Avenida Aguirre #123" required>
+                                                        placeholder="Avenida Aguirre #123" value="<?php echo $datosPersona['DOMICILIO_PARTICULAR'];?>" required>
                                                 </div>
                                             </div>
 
@@ -231,167 +209,42 @@
                                                 <div class="form-group col-md-4">
                                                     <label for="">Región</label>
                                                     <select class="form-control" id="region" name="region">
-                                                        <option selected>Selecciona Región</option>
+                                                        <option value="<?php echo $datosPersona['REGION_ID'];?>" selected><?php echo $datosPersona['REGION_ID'] ?></option>
                                                         <?php
-                                                        while ($datos = mysqli_fetch_array($query)) {
-                                                        ?>
+                                                            while ($datos = mysqli_fetch_array($query)) {
+                                                            ?>
                                                         <option value="<?php echo $datos['REGION_ID']?>">
                                                             <?php echo $datos['REGION_NOMBRE'] ?> </option>
                                                         <?php
-                                                            }
-                                                        ?>
+                                                                }
+                                                            ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="">Provincia</label>
                                                     <select class="form-control" id="provincia" name="provincia">
-                                                        <option>Selecciona Provincia</option>
+                                                    <option value="<?php echo $datosPersona['PROVINCIA_ID'];?>" selected><?php echo $datosPersona['PROVINCIA_ID'] ?></option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="">Comuna</label>
                                                     <select class="form-control" id="comuna" name="comuna">
-                                                        <option>Selecciona Comuna</option>
+                                                    <option value="<?php echo $datosPersona['COMUNA_ID'];?>" selected><?php echo $datosPersona['COMUNA_ID'] ?></option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-block my-4"
-                                                name="submit">Modificar</button>
+                                                name="submit">Registrar</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Formulario Usuario -->
-                        <div class="row">
-                            <div class="col-xs-12 col-lg-6">
-                                <div class="card spur-card">
-                                    <div class="card-header">
-                                        <div class="spur-card-icon">
-                                            <i class="fas fa-user-edit"></i>
-                                        </div>
-                                        <div class="spur-card-title"> Usuarios </div>
-                                    </div>
-                                    <div class="card-body ">
-                                        <form id="form-Usuarios" method="POST" action="modificar-bd.php">
-                                            <div class="form-row">
-                                                <div class="form-group col">
-                                                    <label for="RutUsuario">Rut usuario nuevo</label>
-                                                    <input type="text" minlength="10" maxlength="10"
-                                                        class="form-control" name="RutUsuario" id="RutUsuario"
-                                                        placeholder="" oninput="checkRut(this)" required>
-                                                    <script src="../../js/validar-rut.js"></script>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Nombre de Usuario</label>
-                                                    <input type="nickname" class="form-control" name="nombre_usuario"
-                                                        placeholder="BeastMaster69" required>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Contraseña</label>
-                                                        <div class="input-group">
-                                                            <input type="password" class="form-control" name="password" placeholder="Ingrese Contraseña" id="password" required>
-                                                            <div class="input-group-append">
-                                                                <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                                                            </div>
-                                                        </div>
-                                                    <!-- <div class="form-group">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" onclick="mostrarContraseña()"
-                                                                class="custom-control-input">
-                                                            <label class="custom-control-label" for="contraseña">Mostrar
-                                                                Contraseña</label>
-                                                        </div>
-                                                    </div> -->
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="fecha_nacimiento">Fecha de Registro</label>
-                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha"
-                                                        name="fechaNacimientoUsuario" required>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Privilegios</label>
-                                                    <select class="form-control" name="privilegio">
-                                                        <option selected>Selecciona Privilegios</option>
-                                                        <option>Jefe de Zona</option>
-                                                        <option>Operador</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-row">
-                                                <div class="form-group col-md-12">
-                                                    <label for="instituciones">Institución a la que pertence</label>
-                                                    <select id="instituciones" name="institucion" class="form-control">
-                                                        <option selected>Selecciona Institución</option>
-                                                        <?php
-                                                            while ($datos = mysqli_fetch_array($query1)) {
-                                                        ?>
-                                                        <option value="<?php echo $datos['INSTITUCION_ID']?>">
-                                                            <?php echo $datos['NOMBRE_INSTITUCION'] ?> </option>
-                                                        <?php
-                                                            }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!-- <div class="form-group">
-                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck4">
-                                                    <label class="custom-control-label" for="customCheck4">Check this
-                                                        custom checkbox</label>
-                                                </div>
-                                            </div> -->
-                                            <button type="submit" name="submit2"
-                                                class="btn btn-primary btn-block my-4">Modificar</button>
-                                        </form>
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card spur-card">
-                                    <div class="card-header">
-                                        <div class="spur-card-icon">
-                                            <i class="fas fa-building"></i>
-                                        </div>
-                                        <div class="spur-card-title"> Instituciones </div>
-                                    </div>
-                                    <div class="card-body ">
-                                        <form method="POST" action="modificar-bd.php">
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Nombre de la Institución</label>
-                                                    <input type="text" pattern="^[a-zA-Z]+( [a-zA-Z]+)*$" class="form-control"
-                                                        name="nombre_institucion" placeholder="Seguridad Ciudadana"
-                                                        required>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Persona a Cargo</label>
-                                                    <input type="text" pattern="^[a-zA-Z]+( [a-zA-Z]+)*$" class="form-control"
-                                                        name="persona_acargo" placeholder="" required>
-                                                </div>
-                                            </div>
-                                            <button type="submit" name="submit3"
-                                                class="btn btn-primary btn-block my-4">Modificar</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </main>
             </div>
         </div>
+
 
         <script src="https://code.jquery.com/jquery-3.4.1.js" type="application/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -446,13 +299,13 @@ $(document).ready(function() {
 <!-- --------------------------------------------------------------------------- -->
 <!-- Funcion para mostrar la contraseña -->
 <script>
-    function mostrarContraseña() {
-  var x = document.getElementById("contraseña");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-} 
+function mostrarContraseña() {
+    var x = document.getElementById("contraseña");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
 </script>
 <!-- ----------------------------------- -->

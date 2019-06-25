@@ -40,7 +40,7 @@
                             <i class="far fa-edit"></i>Registros</a>
                         <div class="dash-nav-dropdown-menu">
                             <a href="#" class="dash-nav-dropdown-item">Registrar</a>
-                            <a href="admin-modificaciones.php" class="dash-nav-dropdown-item">Modificar</a>
+                            <a href="admin-tabla-modificaciones.php" class="dash-nav-dropdown-item">Modificar</a>
                             <a href="admin-eliminar.php" class="dash-nav-dropdown-item">Eliminar</a>
                         </div>
                     </div>
@@ -123,7 +123,6 @@
                         <hr>
                         <!-- put your rows / columns here -->
                         <div class="row">
-
                             <div class="col-xs-12 col-lg-12">
                                 <div class="card spur-card">
                                     <div class="card-header">

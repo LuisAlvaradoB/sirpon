@@ -27,13 +27,13 @@ if(isset($_POST['submit'])){
 
 
 	$sql="UPDATE persona SET RUT='$Rut',FECHA_NACIMIENTO='$newDate',NOMBRE='$twoNames',APELLIDO_PA='$Apellido_Pt',APELLIDO_MA='$Apellido_Mt',TELEFONO_RED_FIJA='$Telefono_fijo',TELEFONO='$Telefono_celular',
-    CORREO_ELECTRONICO='$correo_electronico',DOMICILIO_PARTICULAR='$direccion_particular',REGION_ID='$Region',PROVINCIA_ID='$Provincia',COMUNA_ID='$Comuna' WHERE RUT='$Rut";
+    CORREO_ELECTRONICO='$correo_electronico',DOMICILIO_PARTICULAR='$direccion_particular',REGION_ID='$Region',PROVINCIA_ID='$Provincia',COMUNA_ID='$Comuna' WHERE RUT='$Rut'";
 
 	$result=mysqli_query($con,$sql);
 		
 	if ($result) {
 		echo '<script>alert("usuario registrado con exito")</script>';
-		echo '<script>window.location="admin-modificaciones.php"</script>';
+		echo '<script>window.location="admin-tabla-modificaciones.php"</script>';
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($con);
 	}
