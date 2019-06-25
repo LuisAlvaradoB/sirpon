@@ -41,7 +41,7 @@
                         <div class="dash-nav-dropdown-menu">
                             <a href="../admin-registros.php" class="dash-nav-dropdown-item">Registrar</a>
                             <a href="#" class="dash-nav-dropdown-item">Modificar</a>
-                            <a href="../admin-eliminar.php" class="dash-nav-dropdown-item">Eliminar</a>
+                            <!-- <a href="../admin-eliminar.php" class="dash-nav-dropdown-item">Eliminar</a> -->
                         </div>
                     </div>
 

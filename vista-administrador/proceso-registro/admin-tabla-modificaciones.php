@@ -41,7 +41,7 @@
                         <div class="dash-nav-dropdown-menu">
                             <a href="admin-registros.php" class="dash-nav-dropdown-item">Registrar</a>
                             <a href="#" class="dash-nav-dropdown-item">Modificar</a>
-                            <a href="admin-eliminar.php" class="dash-nav-dropdown-item">Eliminar</a>
+                            <!-- <a href="admin-eliminar.php" class="dash-nav-dropdown-item">Eliminar</a> -->
                         </div>
                     </div>
 
@@ -172,7 +172,7 @@
                                         <td><?php echo $mostrar['COMUNA_NOMBRE']?></td>
                                         <th>
                                             <a
-                                                href="admin-mod-datosP.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
+                                                href="form-mod/admin-mod-datosP.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
                                         </th>
                                         <th>
                                             <a
@@ -261,7 +261,7 @@
                                             <td><?php echo $mostrar['NOMBRE_INSTITUCION']?></td>
                                             <td><?php echo $mostrar['USUARIO_JEFE']?></td>
                                             <th>
-                                                <a href="admin-modificaciones.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
+                                                <a href="form-mod/admin-mod-institucion.php?INSTITUCION_ID=<?php echo $mostrar['INSTITUCION_ID']?>">MODIFICAR</a>
                                             </th>
                                             <th>
                                                 <a href="eliminar-operador.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a>

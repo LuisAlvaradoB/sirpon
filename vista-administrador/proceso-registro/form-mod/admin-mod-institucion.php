@@ -116,125 +116,41 @@
                         <hr>
                         <!-- put your rows / columns here -->
                         <?php
-                            $Rut=$_REQUEST['RUT'];
-                            $sql="SELECT * FROM persona WHERE RUT='$Rut'";
+                            $institucionID=$_REQUEST['INSTITUCION_ID'];
+                            $sql="SELECT * FROM institución WHERE INSTITUCION_ID='$institucionID'";
                             $result=mysqli_query($con,$sql);
                             $datosPersona=$result ->fetch_assoc();
                         ?>
                         <div class="row">
-                            <div class="col-xs-12 col-lg-12">
+                            <div class="col-lg-12">
                                 <div class="card spur-card">
                                     <div class="card-header">
                                         <div class="spur-card-icon">
-                                            <i class="fas fa-user-edit"></i>
+                                            <i class="fas fa-building"></i>
                                         </div>
-                                        <div class="spur-card-title"> Datos personales </div>
+                                        <div class="spur-card-title"> Instituciones </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form id="form-datosPersonales" method="POST" action="../modificar-bd.php">
+                                        <form method="POST" action="../modificar-bd.php">
                                             <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="Rut">Rut</label>
-                                                    <input type="text" minlength="10" maxlength="10"
-                                                        class="form-control" name="Rut" id="Rut"
-                                                        placeholder="18545175-k" oninput="checkRut(this)" value="<?php echo $datosPersona['RUT'];?>" required>
-                                                    <script src="../../../js/validar-rut.js"></script>
-                                                </div>
-
-                                                <!-- <div class="form-group col-md-6">
-                                                        <label for="inputPassword4">Fecha de Nacimiento</label>
-                                                        <input type="fecha_nacimiento" class="form-control"
-                                                            id="fecha_nacimiento" placeholder="Password">
-                                                    </div> -->
-                                                <div class="form-group col-md-6">
-                                                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                                                    <input type="date" class="form-control" placeholder="Ingresa Fecha"
-                                                        name="fechaNacimiento" name="fechaNacimiento" value="<?php echo $datosPersona['FECHA_NACIMIENTO'];?>" required>
-                                                </div>
-
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for=" ">Nombre</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        name="nombre_persona" placeholder="Jorge" value="<?php echo $datosPersona['NOMBRE'];?>" required>
+                                                <div>
+                                                    <input class="d-none" type="text" value="<?php echo $institucionID;?>" name="INSTITUCION_ID">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="">Segundo Nombre</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        name="nombre_persona2" placeholder="Andrés" value="<?php echo $datosPersona['NOMBRE'];?>" required>
+                                                    <label for="">Nombre de la Institución</label>
+                                                    <input type="text" pattern="^[a-zA-Z]+( [a-zA-Z]+)*$"
+                                                        class="form-control" name="nombre_institucion"
+                                                        placeholder="Seguridad Ciudadana" value="<?php echo $datosPersona['NOMBRE_INSTITUCION'];?>" required>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="">Persona a Cargo</label>
+                                                    <input type="text" pattern="^[a-zA-Z]+( [a-zA-Z]+)*$"
+                                                        class="form-control" name="persona_acargo" value="<?php echo $datosPersona['USUARIO_JEFE'];?>" placeholder=""
+                                                        required>
                                                 </div>
                                             </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Apellido Paterno</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        name="apellidop_persona" placeholder="Gonzales" value="<?php echo $datosPersona['APELLIDO_PA'];?>" required>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Apellido Materno</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        name="apellidom_persona" placeholder="Delgado" value="<?php echo $datosPersona['APELLIDO_MA'];?>" required>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-row">
-                                                <div class="form-group col-md-3">
-                                                    <label for="">Teléfono Fijo</label>
-                                                    <input type="tel" minlength="9" pattern="[0-9]{9}"
-                                                        class="form-control" name="telefono_fijo"
-                                                        placeholder="51 2 45 58 69" value="<?php echo $datosPersona['TELEFONO_RED_FIJA'];?>" required>
-                                                </div>
-                                                <div class="form-group col-md-3">
-                                                    <label for="">Teléfono Móvil</label>
-                                                    <input type="tel" minlength="9" pattern="[0-9]{9}"
-                                                        class="form-control" name="telefono_movil"
-                                                        placeholder="9 6130 0066" value="<?php echo $datosPersona['TELEFONO'];?>" required>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="">Correo Electrónico</label>
-                                                    <input type="email" class="form-control" name="correo_electronico"
-                                                        placeholder="ejemplo@gmail.com" value="<?php echo $datosPersona['CORREO_ELECTRONICO'];?>" required>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-12">
-                                                    <label for="">Dirección Particular</label>
-                                                    <input type="text" class="form-control" name="direccion_particular"
-                                                        placeholder="Avenida Aguirre #123" value="<?php echo $datosPersona['DOMICILIO_PARTICULAR'];?>" required>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-row">
-                                                <div class="form-group col-md-4">
-                                                    <label for="">Región</label>
-                                                    <select class="form-control" id="region" name="region">
-                                                        <option value="<?php echo $datosPersona['REGION_ID'];?>" selected><?php echo $datosPersona['REGION_ID'] ?></option>
-                                                        <?php
-                                                            while ($datos = mysqli_fetch_array($query)) {
-                                                            ?>
-                                                        <option value="<?php echo $datos['REGION_ID']?>">
-                                                            <?php echo $datos['REGION_NOMBRE'] ?> </option>
-                                                        <?php
-                                                                }
-                                                            ?>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="">Provincia</label>
-                                                    <select class="form-control" id="provincia" name="provincia">
-                                                    <option value="<?php echo $datosPersona['PROVINCIA_ID'];?>" selected><?php echo $datosPersona['PROVINCIA_ID'] ?></option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="">Comuna</label>
-                                                    <select class="form-control" id="comuna" name="comuna">
-                                                    <option value="<?php echo $datosPersona['COMUNA_ID'];?>" selected><?php echo $datosPersona['COMUNA_ID'] ?></option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-block my-4"
-                                                name="submit">Modificar</button>
+                                            <button type="submit" name="submit3"
+                                                class="btn btn-primary btn-block my-4">Modificar</button>
                                         </form>
                                     </div>
                                 </div>
@@ -298,3 +214,14 @@ $(document).ready(function() {
 </script>
 <!-- --------------------------------------------------------------------------- -->
 <!-- Funcion para mostrar la contraseña -->
+<script>
+function mostrarPassword() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+<!-- ----------------------------------- -->

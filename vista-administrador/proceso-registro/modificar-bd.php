@@ -71,16 +71,17 @@ if(isset($_POST['submit2'])){
 
 if(isset($_POST['submit3'])){
 	// Formulario Usuario
-   $nombreInstitucion=$_POST["nombre_institucion"];
-   $personaACargo=$_POST["persona_acargo"];
+	$institucionID = $_POST['INSTITUCION_ID'];
+    $nombreInstitucion=$_POST["nombre_institucion"];
+    $personaACargo=$_POST["persona_acargo"];
 
-   $sql2="UPDATE institución SET NOMBRE_INSTITUCION='$nombreInstitucion',USUARIO_JEFE='$personaACargo' WHERE NOMBRE_INSTITUCION='$nombreInstitucion'";
+   $sql2="UPDATE institución SET NOMBRE_INSTITUCION='$nombreInstitucion',USUARIO_JEFE='$personaACargo' WHERE INSTITUCION_ID='$institucionID'";
 	   
 	$result2=mysqli_query($con,$sql2);
 	   
 	if ($result2) {
 		echo '<script>alert("usuario registrado con exito")</script>';
-		echo '<script>window.location="admin-registros.php"</script>';
+		echo '<script>window.location="admin-tabla-modificaciones.php"</script>';
 	} else {
 	   echo "Error: " . $sql2 . "<br>" . mysqli_error($con);
 	}
