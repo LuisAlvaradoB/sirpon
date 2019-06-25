@@ -72,51 +72,51 @@ $query4= mysqli_query($con, "SELECT  * FROM institución");
                         <div class="form-group">
                             <div class="form-group">
                                 <label>RUT</label>
-                                <input minlength="10" maxlength="10" type="text" class="form-control" placeholder="ejem 18.700.672-0" name="Rut" required
+                                <input REQUIRED minlength="10" maxlength="10" type="text" class="form-control" placeholder="ejem 18.700.672-0" name="Rut" required
                                                         oninput="checkRut(this)" required>
                             </div>
 
                             <label>NOMBRES</label>
-                            <input type="text" class="form-control"  maxlength="30" onkeypress="return soloLetras(event)" onblur="limpia()" id="miInput" placeholder="Nombre" name="nombre">
+                            <input REQUIRED type="text" class="form-control"  maxlength="30" onkeypress="return soloLetras(event)" onblur="limpia()" id="miInput" placeholder="Nombre" name="nombre">
                         </div>
                         <div class="form-group">
                             <label>APELLIDO PATERNO</label>
-                            <input type="text" class="form-control"  maxlength="30"onkeypress="return soloLetras(event)" onblur="limpia()" id="miInput" placeholder="Apellido Paterno" name="ApellidoP">
+                            <input REQUIRED type="text" class="form-control"  maxlength="30"onkeypress="return soloLetras(event)" onblur="limpia()" id="miInput" placeholder="Apellido Paterno" name="ApellidoP">
                         </div>
                         <div class="form-group">
                             <label>APELLIDO MATERNO</label>
-                            <input type="text" class="form-control"  maxlength="30" onkeypress="return soloLetras(event)" onblur="limpia()" id="miInput" placeholder="Apellido Materno" name="ApellidoM">
+                            <input REQUIRED type="text" class="form-control"  maxlength="30" onkeypress="return soloLetras(event)" onblur="limpia()" id="miInput" placeholder="Apellido Materno" name="ApellidoM">
                         </div>
 
 
                         <div class="form-group">
                             <label>DIRECCIÓN DE DOMICILIO PARTICULAR</label>
-                            <input type="text" class="form-control" placeholder="DIRECCIÓN DE DOMICILIO" name="Direccion_Domicilio">
+                            <input REQUIRED type="text" class="form-control" placeholder="DIRECCIÓN DE DOMICILIO" name="Direccion_Domicilio">
                         </div>
                         <div class="form-row">
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-xs-3">
                                 <label>FECHA DE NACIMIENTO</label>
-                                <input type="date" class="form-control" placeholder="Nombre" name="fechaNacimiento">
+                                <input REQUIRED type="date" class="form-control" placeholder="Nombre" name="fechaNacimiento">
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-xs-3">
                                 <label>TELEFONO CELULAR</label>
-                                <input type="text" onkeypress="return numeros(event)"  maxlength="9" pattern="[0-9]{9}" class="form-control" placeholder="5345345." name="num_telefono_celular">
+                                <input  REQUIRED type="text" onkeypress="return numeros(event)"  maxlength="9" pattern="[0-9]{9}" class="form-control" placeholder="5345345." name="num_telefono_celular">
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-xs-3">
                                 <label>TELEFONO RED FIJA</label>
-                                <input type="text" onkeypress="return numeros(event)"  maxlength="9" pattern="[0-9]{9}" class="form-control" placeholder="ejem,02 42 46..." name="Telefono_Fijo">
+                                <input REQUIRED type="text" onkeypress="return numeros(event)"  maxlength="9" pattern="[0-9]{9}" class="form-control" placeholder="ejem,02 42 46..." name="Telefono_Fijo">
                             </div>
                             <div class="form-group col-md-3">
                                 <label>CORREO ELECTRONICO</label>
-                                <input type="email" class="form-control" placeholder="no olvidar @" name="correo">
+                                <input REQUIRED type="email" class="form-control" placeholder="no olvidar @" name="correo">
                             </div>
                         </div>
 
                         <div class="form-row">
 
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-xs-5">
                                 <label>REGION</label>
                                 <select class="form-control" id="region" name="region">
                                 <option>seleccione</option>
@@ -133,7 +133,7 @@ $query4= mysqli_query($con, "SELECT  * FROM institución");
                             </div>
 
 
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-xs-4">
                                 <label>PROVINCIA</label>
                                 <select class="form-control" id="provincia" name="provincia">
                                 <option selected>seleccione</option>
@@ -238,7 +238,7 @@ $query4= mysqli_query($con, "SELECT  * FROM institución");
                         <th><?php echo $mostrar['PROVINCIA_NOMBRE']?></th>
                         <th><?php echo $mostrar['COMUNA_NOMBRE']?></th>
                         <th><a href="modificar-ope.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a></th>
-                        <th><a href="eliminar-operador.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a></th>
+                        <th><a href="eliminar-operador.php?rut=<?php echo $mostrar['RUT']?>">ELIMINAR</a></th>
                         <!--boton para eliminar-->
                     </tr>
                     <?php
@@ -265,8 +265,8 @@ $query4= mysqli_query($con, "SELECT  * FROM institución");
             </div>
             <div class="card-body ">
                 <form action="registro-usuario.php" method="POST">
+                    <div class="form-group col-xs-4">
                     <div class="form-group">
-                    <div class="form-group col-md-4">
                                 <label>RUT</label>
                                 <select class="form-control" name="rut">
                                 <option>seleccione</option>
@@ -288,14 +288,8 @@ $query4= mysqli_query($con, "SELECT  * FROM institución");
                     <div class="form-group">
                         <label>CONTRASEÑA</label>
                         <input type="password" class="form-control" placeholder="Contraseña" name="contra">
-                        <div class="form-group">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" onclick="mostrarContraseña()"
-                                                                class="custom-control-input" id="mostrar_contraseña">
-                                                            <label class="custom-control-label"
-                                                                for="mostrar_contraseña">Mostrar Contraseña</label>
-                                                        </div>
-                                                    </div>
+                       
+                                                     
                     </div>
                     <div class="form-group">
                         <label>FECHA DE CREACION USUARIO</label>
@@ -307,7 +301,7 @@ $query4= mysqli_query($con, "SELECT  * FROM institución");
                         <label>ASIGNACION</label>
                         <input type="text" class="form-control" placeholder="Asignacion" name="asignacion">
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-xs-4">
                                 <label>INSTITUCION</label>
                                 <select class="form-control" name="institucion">
                                 <option>seleccione</option>
@@ -356,8 +350,8 @@ function numeros(e){
 
 </script>
 
-
-<!-- <script>
+<!-- //validacion de rut -->
+ <script>
 function checkRut(Rut) {
     // Despejar Puntos
     var valor = Rut.value.replace('.','');
@@ -405,7 +399,7 @@ function checkRut(Rut) {
     // Si todo sale bien, eliminar errores (decretar que es válido)
     Rut.setCustomValidity('');
 }
-</script> -->
+</script> 
 
 <script type="text/javascript">
 $(document).ready(function() {
