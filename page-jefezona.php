@@ -1,4 +1,6 @@
-<?php include 'head.php'; ?>
+<?php include 'head.php'; 
+include 'conexion.php';
+?>
 
 <body>
     
@@ -81,6 +83,12 @@
                             </div>
                             <hr>
                         <!-- put your rows / columns here -->
+                        <?php
+                        
+                        $sql="SELECT * FROM persona";
+                        $result=mysqli_query($con,$sql);
+                        $cantidad=mysqli_num_rows($result);
+                        ?>
                         <div class="row dash-row">
                             <div class="col-xs-4">
                                 <div class="stats stats-primary">
@@ -90,7 +98,7 @@
                                             <i class="fas fa-user-friends"></i>
                                         </div>
                                         <div class="stats-data">
-                                            <div class="stats-number">3</div>
+                                            <div class="stats-number"><?php echo $cantidad;?></div>
                                             <!-- <div class="stats-change">
                                                 <span class="stats-percentage">+25%</span>
                                                 <span class="stats-timeframe">from last month</span>
@@ -99,6 +107,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                        
+                        $sql="SELECT * FROM sector";
+                        $result=mysqli_query($con,$sql);
+                        $cantidad1=mysqli_num_rows($result);
+                        ?>
                             <div class="col-xl-4">
                                 <div class="stats stats-success ">
                                     <h3 class="stats-title"> Cantidad de sectores </h3>
@@ -107,7 +121,7 @@
                                             <i class="fas fa-building"></i>
                                         </div>
                                         <div class="stats-data">
-                                            <div class="stats-number">1</div>
+                                            <div class="stats-number"><?php echo $cantidad1;?></div>
                                             <!-- <div class="stats-change">
                                                 <span class="stats-percentage">+17.5%</span>
                                                 <span class="stats-timeframe">from last month</span>
@@ -118,7 +132,12 @@
                                     </div>
                                 </div>
                             </div>
-       
+                            <?php
+                        
+                        $sql="SELECT * FROM usuario";
+                        $result=mysqli_query($con,$sql);
+                        $cantidad2=mysqli_num_rows($result);
+                        ?>
                             <div class="col-xl-4">
                                 <div class="stats stats-danger">
                                     <h3 class="stats-title"> Cantidad de usuarios </h3>
@@ -127,7 +146,7 @@
                                             <i class="fas fa-user"></i>
                                         </div>
                                         <div class="stats-data">
-                                            <div class="stats-number">2</div>
+                                            <div class="stats-number"><?php echo $cantidad2;?></div>
                                         </div>
                                     </div>
                                 </div>
