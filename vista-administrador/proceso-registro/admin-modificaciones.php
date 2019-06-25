@@ -153,15 +153,16 @@
                                         <div class="spur-card-title"> Datos personales </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form class="">
+                                        <form id="form-datosPersonales" method="POST" action="modificar-bd.php">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="Rut">Rut</label>
                                                     <input type="text" minlength="10" maxlength="10"
-                                                        class="form-control" id="Rut" placeholder="18545175-k" required oninput="checkRut(this)" required>
-                                                        <script src="../../js/validar-rut.js"></script>
+                                                        class="form-control" name="Rut" id="Rut"
+                                                        placeholder="18545175-k" oninput="checkRut(this)" required>
+                                                    <script src="../../js/validar-rut.js"></script>
                                                 </div>
-                                                
+
                                                 <!-- <div class="form-group col-md-6">
                                                     <label for="inputPassword4">Fecha de Nacimiento</label>
                                                     <input type="fecha_nacimiento" class="form-control"
@@ -170,7 +171,7 @@
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Nacimiento</label>
                                                     <input type="date" class="form-control" placeholder="Ingresa Fecha"
-                                                        name="fechaNacimiento" id="fechaNacimiento" required>
+                                                        name="fechaNacimiento" name="fechaNacimiento" required>
                                                 </div>
 
                                             </div>
@@ -178,24 +179,24 @@
                                                 <div class="form-group col-md-6">
                                                     <label for=" ">Nombre</label>
                                                     <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        id="nombre_persona" placeholder="Jorge" required>
+                                                        name="nombre_persona" placeholder="Jorge" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Segundo Nombre</label>
                                                     <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        id="nombre_persona2" placeholder="Andrés" required>
+                                                        name="nombre_persona2" placeholder="Andrés" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="">Apellido Paterno</label>
                                                     <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        id="apellidop_persona" placeholder="Gonzales" required>
+                                                        name="apellidop_persona" placeholder="Gonzales" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Apellido Materno</label>
                                                     <input type="text" pattern="[a-zA-Z]+" class="form-control"
-                                                        id="apellidom_persona" placeholder="Delgado" required>
+                                                        name="apellidom_persona" placeholder="Delgado" required>
                                                 </div>
                                             </div>
 
@@ -203,26 +204,26 @@
                                                 <div class="form-group col-md-3">
                                                     <label for="">Teléfono Fijo</label>
                                                     <input type="tel" minlength="9" pattern="[0-9]{9}"
-                                                        class="form-control" id="telefono_fijo"
-                                                        placeholder="51 2 45 58 69">
+                                                        class="form-control" name="telefono_fijo"
+                                                        placeholder="51 2 45 58 69" required>
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                     <label for="">Teléfono Móvil</label>
                                                     <input type="tel" minlength="9" pattern="[0-9]{9}"
-                                                        class="form-control" id="telefono_movil"
-                                                        placeholder="9 6130 0066">
+                                                        class="form-control" name="telefono_movil"
+                                                        placeholder="9 6130 0066" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Correo Electrónico</label>
-                                                    <input type="email" class="form-control" id="correo_electronico"
-                                                        placeholder="ejemplo@gmail.com">
+                                                    <input type="email" class="form-control" name="correo_electronico"
+                                                        placeholder="ejemplo@gmail.com" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label for="">Dirección Particular</label>
-                                                    <input type="text" class="form-control" id="direccion_particular"
-                                                        placeholder="Avenida Aguirre #123">
+                                                    <input type="text" class="form-control" name="direccion_particular"
+                                                        placeholder="Avenida Aguirre #123" required>
                                                 </div>
                                             </div>
 
@@ -254,23 +255,14 @@
                                                     </select>
                                                 </div>
                                             </div>
-
-                                            <!-- <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck4">
-                                                    <label class="custom-control-label" for="customCheck4">Check this
-                                                        custom checkbox</label>
-                                                </div>
-                                            </div> -->
-
-                                            <!-- <button type="submit" class="btn btn-primary btn-block my-4">Registrar</button> -->
+                                            <button type="submit" class="btn btn-primary btn-block my-4"
+                                                name="submit">Modificar</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+                        <!-- Formulario Usuario -->
                         <div class="row">
                             <div class="col-xs-12 col-lg-6">
                                 <div class="card spur-card">
@@ -281,35 +273,49 @@
                                         <div class="spur-card-title"> Usuarios </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form>
+                                        <form id="form-Usuarios" method="POST" action="modificar-bd.php">
+                                            <div class="form-row">
+                                                <div class="form-group col">
+                                                    <label for="RutUsuario">Rut usuario nuevo</label>
+                                                    <input type="text" minlength="10" maxlength="10"
+                                                        class="form-control" name="RutUsuario" id="RutUsuario"
+                                                        placeholder="" oninput="checkRut(this)" required>
+                                                    <script src="../../js/validar-rut.js"></script>
+                                                </div>
+                                            </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="">Nombre de Usuario</label>
-                                                    <input type="nickname" class="form-control" id="nombre_usuario"
-                                                        placeholder="BeastMaster69">
+                                                    <input type="nickname" class="form-control" name="nombre_usuario"
+                                                        placeholder="BeastMaster69" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Contraseña</label>
-                                                    <input type="password" class="form-control" id="contraseña"
-                                                        placeholder="Contraseña">
-                                                    <div class="form-group">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" onclick="mostrarContraseña()" class="custom-control-input"
-                                                                id="mostrar_contraseña">
-                                                            <label class="custom-control-label" for="mostrar_contraseña">Mostrar Contraseña</label>
+                                                        <div class="input-group">
+                                                            <input type="password" class="form-control" name="password" placeholder="Ingrese Contraseña" id="password" required>
+                                                            <div class="input-group-append">
+                                                                <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    <!-- <div class="form-group">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" onclick="mostrarContraseña()"
+                                                                class="custom-control-input">
+                                                            <label class="custom-control-label" for="contraseña">Mostrar
+                                                                Contraseña</label>
+                                                        </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fecha_nacimiento">Fecha de Registro</label>
                                                     <input type="date" class="form-control" placeholder="Ingresa Fecha"
-                                                        name="fechaNacimientoUsuario">
+                                                        name="fechaNacimientoUsuario" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Privilegios</label>
-                                                    <select class="form-control" id="jefeszonas">
+                                                    <select class="form-control" name="privilegio">
                                                         <option selected>Selecciona Privilegios</option>
                                                         <option>Jefe de Zona</option>
                                                         <option>Operador</option>
@@ -321,7 +327,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label for="instituciones">Institución a la que pertence</label>
-                                                    <select id="instituciones" class="form-control">
+                                                    <select id="instituciones" name="institucion" class="form-control">
                                                         <option selected>Selecciona Institución</option>
                                                         <?php
                                                             while ($datos = mysqli_fetch_array($query1)) {
@@ -342,9 +348,12 @@
                                                         custom checkbox</label>
                                                 </div>
                                             </div> -->
-                                            <button type="submit"
+                                            <button type="submit" name="submit2"
                                                 class="btn btn-primary btn-block my-4">Modificar</button>
                                         </form>
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -357,20 +366,21 @@
                                         <div class="spur-card-title"> Instituciones </div>
                                     </div>
                                     <div class="card-body ">
-                                        <form>
+                                        <form method="POST" action="modificar-bd.php">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="">Nombre de la Institución</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" id="nombre_institución"
-                                                        placeholder="Seguridad Ciudadana">
+                                                    <input type="text" pattern="^[a-zA-Z]+( [a-zA-Z]+)*$" class="form-control"
+                                                        name="nombre_institucion" placeholder="Seguridad Ciudadana"
+                                                        required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="">Persona a Cargo</label>
-                                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" id="persona_acargo"
-                                                        placeholder="">
+                                                    <input type="text" pattern="^[a-zA-Z]+( [a-zA-Z]+)*$" class="form-control"
+                                                        name="persona_acargo" placeholder="" required>
                                                 </div>
                                             </div>
-                                            <button type="submit"
+                                            <button type="submit" name="submit3"
                                                 class="btn btn-primary btn-block my-4">Modificar</button>
                                         </form>
                                     </div>
