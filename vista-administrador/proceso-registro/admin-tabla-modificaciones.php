@@ -175,8 +175,7 @@
                                                 href="form-mod/admin-mod-datosP.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
                                         </th>
                                         <th>
-                                            <a
-                                                href="eliminar-operador.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a>
+                                            <a href="eliminar-bd.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a>
                                         </th>
                                         <!--boton para eliminar-->
                                     </tr>
@@ -201,7 +200,6 @@
                                         <th scope="col">PRIVILEGIOS</th>
                                         <th scope="col">INSTITUCION</th>
                                         <th scope="col">ACCIONES</th>
-                                        <th scope="col">ACCIONES</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -223,7 +221,7 @@
                                                 <a href="form-mod/admin-mod-usuario.php?RUT=<?php echo $mostrar['RUT']?>">MODIFICAR</a>
                                             </th>
                                             <th>
-                                            <a href="eliminar-operador.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a>
+                                            <!-- <a href="eliminar-bd.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a> -->
                                             </th>
                                              <!--boton para eliminar-->
                                         </tr>
@@ -264,7 +262,7 @@
                                                 <a href="form-mod/admin-mod-institucion.php?INSTITUCION_ID=<?php echo $mostrar['INSTITUCION_ID']?>">MODIFICAR</a>
                                             </th>
                                             <th>
-                                                <a href="eliminar-operador.php?RUT=<?php echo $mostrar['RUT']?>">ELIMINAR</a>
+                                                <a href="eliminar-bd.php?INSTITUCION_ID=<?php echo $mostrar['INSTITUCION_ID']?>">ELIMINAR</a>
                                             </th>
                                              <!--boton para eliminar-->
                                         </tr>
