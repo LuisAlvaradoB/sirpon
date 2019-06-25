@@ -48,7 +48,7 @@ include'conexion.php';
         <div class="dash-app">
             
             <main class="dash-content">
-                <div class="container-fluid ">
+                <div class="container-fluid " style="margin-top:-640px;">
                     <h1 class="dash-title">Bienvenido - Sistema Integrado de Busqueda para la Prevención Online</h1>
                     <!-- put your rows / columns here -->
                     <div class="spur-card-title"> Ficha de Delincuente </div>
@@ -197,4 +197,14 @@ if(isset($_POST['buscar'])  ){
     Rut.setCustomValidity('');
 }
     </script>
+            <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <?PHP include'autocomplete.php' ?> 
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    
     <?php include 'footer.php'; ?>

@@ -57,62 +57,62 @@ $query2 = mysqli_query($con, "SELECT*  FROM comuna");
                                         <div class="form-group">
                                         <div class="form-group">
                                             <label >Rut</label>
-                                            <input minlength="10" maxlength="10" type="text" class="form-control" placeholder="ejem 18.700.672-0" name="Rut" required
+                                            <input minlength="10" maxlength="10" type="text"  class="form-control" placeholder="ejem 18.700.672-0" name="Rut" required
                                                         oninput="checkRut(this)" required>
                                         </div>
                                             <label >NOMBRES COMPELTO</label>
-                                            <input type="text" class="form-control"  placeholder="Nombre" name="nombre">
+                                            <input type="text" class="form-control" required placeholder="Nombre" name="nombre">
                                         </div>
                                         <div class="form-group">
                                             <label >APELLIDO PATERNO</label>
-                                            <input type="text" class="form-control"  placeholder="Apellido Paterno" name="ApellidoP">
+                                            <input type="text" class="form-control" required  placeholder="Apellido Paterno" name="ApellidoP">
                                         </div>
                                         <div class="form-group">
                                             <label >APELLIDO MATERNO</label>
-                                            <input type="text" class="form-control"  placeholder="Apellido Materno" name="ApellidoM">
+                                            <input type="text" class="form-control" required  placeholder="Apellido Materno" name="ApellidoM">
                                         </div>
                                        
                                        
                                         <div class="form-group">
                                             <label >DIRECCIÓN DE DOMICILIO PARTICULAR</label>
-                                            <input type="text" class="form-control"  placeholder="DIRECCIÓN DE DOMICILIO" name="Direccion_Domicilio">
+                                            <input type="text" class="form-control" required placeholder="DIRECCIÓN DE DOMICILIO" name="Direccion_Domicilio">
                                         </div>
                                         <div class="form-row">
 
                                                 <div class="form-group col-md-3">
                                                      <label >FECHA DE NACIMIENTO</label>
-                                                     <input type="date" class="form-control"  placeholder="Nombre" name="fechaNacimiento">
+                                                     <input type="date" class="form-control" required placeholder="Nombre" name="fechaNacimiento">
                                                 </div>
                                      
                                                 <div class="form-group col-md-3">
-                                                      <label >TELEFONO CELULAR</label>
-                                                      <input type="text" class="form-control"  placeholder="+569..." name="num_telefono_celular">
+                                                      <label >TELEFONO MOVIL</label>
+                                                      <input type="tel" class="form-control"required minlength="9" pattern="[0-9]{9}"  placeholder="9 6130 0066" name="num_telefono_celular">
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                       <label >TELEFONO RED FIJA</label>
-                                                      <input type="text" class="form-control"  placeholder="ejem,02 42 46..." name="Telefono_Fijo">
+                                                      <input type="tel" class="form-control" required placeholder="9 6130 0066" minlength="9" pattern="[0-9]{9}" name="Telefono_Fijo">
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                       <label >CORREO ELECTRONICO</label>
-                                                      <input type="email" class="form-control"  placeholder="no olvidar @" name="correo">
+                                                      <input type="email" class="form-control"  required placeholder="no olvidar @" name="correo">
                                                 </div>
                                         </div><!-- div de class form-row de datos de delincuente como numero etc -->
                                         <div class="form-row">
                                                  <div class="form-group col-md-3">
                                                       <label >APODO DEL DELINCUENTE</label>
-                                                      <input type="text" class="form-control"  placeholder="APODO " name="Apodo_delincuente">
+                                                      <input type="text" class="form-control"  required  placeholder="APODO " name="Apodo_delincuente">
                                                  </div>
                                                 <div class="form-group col-md-3">
                                                      <label >ESTADO PENAL</label>
-                                                     <input type="text" class="form-control"  placeholder="Estado Penal" name="Estado_penal">
+                                                     <input type="text" class="form-control"  required  placeholder="Estado Penal" name="Estado_penal">
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                      <label >CANTIDAD DE DELITOS</label>
-                                                     <input type="text" class="form-control"  placeholder="Estado Penal" name="CANTIDAD">
+                                                     <input type="text" class="form-control"   required placeholder="Estado Penal" name="CANTIDAD">
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                 <label >ULTIMO LUGAR VISTO</label>
-                                                      <input type="text" class="form-control"  placeholder="ejem, direccion de la calle" name="Direc_Ultima_Vista">
+                                                      <input type="text" class="form-control"  required  placeholder="ejem, direccion de la calle" name="Direc_Ultima_Vista">
                                                 </div>
                                         </div><!-- div de class form-row de delincuente -->
                                      
@@ -275,6 +275,15 @@ $(document).ready(function() {
     });
 });
 </script>
-
+      <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <?PHP include'autocomplete.php' ?> 
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    
     <?php include 'footer.php'; ?>
     
